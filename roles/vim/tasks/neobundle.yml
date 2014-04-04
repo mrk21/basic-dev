@@ -1,0 +1,17 @@
+---
+- name: create ~/.vim/bundle
+  file: >
+    state=directory
+    recurse=yes
+    path=~/.vim/bundle
+
+- name: git clone neobundle
+  git: >
+    repo=https://github.com/Shougo/neobundle.vim.git
+    dest=~/.vim/bundle/neobundle.vim
+
+- name: bundle clean
+  command: vi -c NeoBundleClean -c q
+
+- name: bundle install
+  command: vi -c NeoBundleInstall -c q

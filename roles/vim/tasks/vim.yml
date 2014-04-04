@@ -1,0 +1,20 @@
+---
+- name: install
+  homebrew: >
+    state=present
+    name=macvim
+    install_options=with-cscope,with-lua,override-system-vim
+  
+- name: link apps
+  command: brew linkapps
+  
+- name: get project root
+  command: pwd
+  register: result
+  
+- name: link vimrc
+  file: >
+    state=link
+    force=yes
+    src={{result.stdout}}/roles/vim/files/vimrc
+    dest=~/.vimrc
