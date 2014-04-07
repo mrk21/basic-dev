@@ -1,5 +1,11 @@
 ---
 - hosts: all
   roles:
+    - role: homebrew
+      tags: homebrew
+      
+    - role: basic-pkg
+      tags: basic-pkg
+      
     - role: vim
       tags: vim

@@ -6,7 +6,9 @@
     install_options=with-cscope,with-lua,override-system-vim
   
 - name: link apps
-  command: brew linkapps
+  command: >
+    creates=/Applications/MacVim.app
+    brew linkapps
   
 - name: get project root
   command: pwd

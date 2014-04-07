@@ -1,0 +1,5 @@
+---
+- name: install
+  shell: >
+    creates=/usr/local/bin/brew
+    ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
