@@ -8,3 +8,4 @@
     - pwgen
     - pkg-config
     - cmake
+    - boost
