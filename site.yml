@@ -9,3 +9,6 @@
       
     - role: vim
       tags: vim
+      
+    - role: cpp
+      tags: cpp
