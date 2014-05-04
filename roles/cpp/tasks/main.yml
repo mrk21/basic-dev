@@ -1,8 +1,18 @@
 ---
-- name: install
-  homebrew: state=present name={{item}}
+- name: install boost
+  homebrew: state=present name={{item}} install_options=c++11
   with_items:
     - boost
+
+- name: install gcc
+  homebrew: state=present name={{item}}
+  with_items:
     - gcc47
     - gcc48
     - gcc49
+
+- name: install clang
+  homebrew: state=present name={{item}} install_options=with-clang,with-libcxx,rtti
+  with_items:
+    - llvm33
+    - llvm34
