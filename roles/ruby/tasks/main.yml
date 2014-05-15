@@ -1,0 +1,31 @@
+---
+- name: rbenv config
+  shell: >
+    creates=~/.rbenvrc
+    echo 'eval "$(rbenv init -)"' > ~/.rbenvrc;
+    echo '. ~/.rbenvrc' >> ~/.zshrc;
+  
+- name: install packages
+  homebrew: state=present name={{item}}
+  with_items:
+    - rbenv
+    - ruby-build
+    - rbenv-gemset
+    - rbenv-gem-rehash
+    - readline
+    - openssl
+
+- name: install ruby
+  shell: >
+    creates=~/.rbenv/versions/2.1.1/bin/ruby
+    rbenv install 2.1.1;
+    rbenv global 2.1.1;
+    rbenv rehash;
+
+- name: install bundler
+  gem: name={{item}} state=present
+  with_items:
+    - bundler
+
+- name: rehash
+  command: rbenv rehash

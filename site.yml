@@ -12,3 +12,6 @@
       
     - role: cpp
       tags: cpp
+    
+    - role: ruby
+      tags: ruby
