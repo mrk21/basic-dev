@@ -17,8 +17,15 @@
 
 - name: install ruby
   shell: >
-    creates=~/.rbenv/versions/2.1.1/bin/ruby
-    rbenv install 2.1.1;
+    creates=~/.rbenv/versions/{{item}}/bin/ruby
+    rbenv install {{item}};
+  with_items:
+    - 1.9.3-p547
+    - 2.0.0-p481
+    - 2.1.1
+
+- name: using latest version
+  shell: >
     rbenv global 2.1.1;
     rbenv rehash;
 
