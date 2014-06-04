@@ -1,6 +1,7 @@
 "### Base ###
 
 set nobackup
+set noundofile
 set number
 set ruler
 set nocompatible

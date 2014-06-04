@@ -1,5 +1,11 @@
 ---
-- name: install
+- name: install homebrew
   shell: >
     creates=/usr/local/bin/brew
     ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
+
+- name: add homebrew-cask repository
+  homebrew_tap: tap=caskroom/cask state=present
+
+- name: install homebrew-cask
+  homebrew: name=brew-cask state=present

@@ -1,7 +1,7 @@
 task :default => :playbook
 
 desc 'Run ansible-playbook'
-task :playbook => :ansible do
+task :playbook do
   sh "ansible-playbook -i inventory.ini site.yml #{ENV['args']}"
 end
 
