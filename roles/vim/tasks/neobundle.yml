@@ -11,7 +11,7 @@
     dest=~/.vim/bundle/neobundle.vim
 
 - name: bundle clean
-  command: vi -c NeoBundleClean -c q
+  command: /Applications/MacVim.app/Contents/MacOS/mvim -c NeoBundleClean -c q
 
 - name: bundle install
-  command: vi -c NeoBundleInstall -c q
+  command: /Applications/MacVim.app/Contents/MacOS/mvim -c NeoBundleInstall -c q

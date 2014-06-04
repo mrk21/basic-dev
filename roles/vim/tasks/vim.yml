@@ -1,14 +1,40 @@
 ---
+- name: add repository
+  command: >
+    creates=/usr/local/Library/Taps/supermomonga
+    brew tap supermomonga/homebrew-splhack
+  
 - name: install
-  homebrew: >
-    state=present
-    name=macvim
-    install_options=with-cscope,with-lua,override-system-vim
+  homebrew: name={{item.name}} install_options={{item.options}} state=present
+  with_items:
+    - name: cscope
+      options:
+    
+    - name: lua
+      options:
+    
+    - name: cmigemo-mk
+      options: HEAD
+    
+    - name: ctags-objc-ja
+      options: HEAD
+    
+    - name: macvim-kaoriya
+      options: HEAD,with-lua,with-cscope
   
 - name: link apps
   command: >
     creates=/Applications/MacVim.app
     brew linkapps
+  
+- name: set rc
+  copy: src={{item.src}} dest={{item.dest}}
+  with_items:
+    - src: macvim-kaoriya_profile.sh
+      dest: ~/.zprofile.d/macvim-kaoriya.sh
+    
+    - src: macvim-kaoriya_rc.sh
+      dest: ~/.zshrc.d/macvim-kaoriya.sh
   
 - name: get project root
   command: pwd

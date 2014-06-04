@@ -1,5 +1,6 @@
 "### Base ###
 
+set nobackup
 set number
 set ruler
 set nocompatible
@@ -11,7 +12,7 @@ set showmatch
 
 " white characters
 set list
-set listchars=tab:→\ ,eol:¶
+set listchars=eol:$,tab:>\ ,extends:<
 highlight JpSpace cterm=underline ctermfg=Blue guifg=Blue
 autocmd BufRead,BufNew * match JpSpace /　/
 
