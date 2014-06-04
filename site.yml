@@ -6,10 +6,13 @@
       
     - role: basic-pkg
       tags: basic-pkg
-      
+    
+    - role: zsh
+      tags: zsh
+    
     - role: vim
       tags: vim
-      
+    
     - role: cpp
       tags: cpp
     

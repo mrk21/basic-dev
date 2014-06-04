@@ -1,9 +1,6 @@
 ---
 - name: rbenv config
-  shell: >
-    creates=~/.rbenvrc
-    echo 'eval "$(rbenv init -)"' > ~/.rbenvrc;
-    echo '. ~/.rbenvrc' >> ~/.zshrc;
+  copy: src=rbenv.sh dest=~/.zprofile.d/rbenv.sh
   
 - name: install packages
   homebrew: state=present name={{item}}
