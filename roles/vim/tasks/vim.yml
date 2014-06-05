@@ -36,6 +36,11 @@
     - src: macvim-kaoriya_rc.sh
       dest: ~/.zshrc.d/macvim-kaoriya.sh
   
+- name: make directories
+  file: state=directory path={{item}}
+  with_items:
+    - ~/.vim-tmp
+  
 - name: get project root
   command: pwd
   register: result
@@ -44,5 +49,8 @@
   file: >
     state=link
     force=yes
-    src={{result.stdout}}/roles/vim/files/vimrc
-    dest=~/.vimrc
+    src={{result.stdout}}/roles/vim/files/{{item}}
+    dest=~/.{{item}}
+  with_items:
+    - vimrc
+    - gvimrc
