@@ -1,10 +1,18 @@
 "### Base ###
 
-set nobackup
-set noundofile
 set number
 set ruler
 set nocompatible
+
+" tmp files
+set backup
+set backupdir=~/.vim-tmp
+
+set undofile
+set undodir=~/.vim-tmp
+
+set swapfile
+set directory=~/.vim-tmp
 
 " search
 set incsearch
