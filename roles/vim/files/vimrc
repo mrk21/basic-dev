@@ -1,7 +1,9 @@
 "### Base ###
+scriptencoding utf-8
+filetype detect
+syntax on
 
 colorscheme delek
-syntax on
 
 set number
 set ruler
@@ -36,11 +38,6 @@ set softtabstop=2
 set autoindent
 set smartindent
 
-autocmd FileType cpp setlocal tabstop=4
-autocmd FileType cpp setlocal shiftwidth=4
-autocmd FileType cpp setlocal softtabstop=4
-autocmd FileType makefile setlocal noexpandtab
-
 " disable cusor key
 nnoremap <Up> <NOP>
 nnoremap <Down> <NOP>
@@ -60,42 +57,55 @@ inoremap <CR> <CR>X<C-h>
 
 
 "### NeoBundle ###
-
-set nocompatible
-filetype off
-
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
   call neobundle#rc(expand('~/.vim/bundle/'))
 endif
 
+" Input completion
 NeoBundle 'Shougo/neocomplete.vim'
+
+" Shell
 NeoBundle 'Shougo/vimshell.vim'
 NeoBundle 'Shougo/vimproc.vim', {
-\   'build' : {
-\     'windows' : 'make -f make_mingw32.mak',
-\     'cygwin' : 'make -f make_cygwin.mak',
-\     'mac' : 'make -f make_mac.mak',
-\     'unix' : 'make -f make_unix.mak',
-\   },
-\ }
+\  'build': {
+\    'windows': 'make -f make_mingw32.mak',
+\    'cygwin': 'make -f make_cygwin.mak',
+\    'mac': 'make -f make_mac.mak',
+\    'unix': 'make -f make_unix.mak',
+\  },
+\}
 
+" Virtual Caps Lock
 NeoBundle 'tpope/vim-capslock'
+
+" File selector
 NeoBundle 'kien/ctrlp.vim'
 
-filetype plugin indent on
-filetype indent on
-syntax on
+" Comment out
+NeoBundle 'tyru/caw.vim'
+
+" Wandbox
+NeoBundle 'rhysd/wandbox-vim'
+
+" C++ Syntax
+NeoBundleLazy 'vim-jp/cpp-vim', {
+\  'autoload': {'filetypes': 'cpp'}
+\}
+
+" C++ Input completion (use Clang)
+NeoBundleLazy 'osyo-manga/vim-marching', {
+\  'autoload': {'filetypes': 'cpp'}
+\}
 
 
 
 "### NeoComplete.vim ###
-
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_ignore_case = 1
 let g:neocomplete#enable_smart_case = 1
 if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
+  let g:neocomplete#keyword_patterns = {}
 endif
 let g:neocomplete#keyword_patterns._ = '\h\w*'
 
@@ -105,5 +115,79 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
 
 "### Capslock.vim ###
+imap <C-a> <C-O><Plug>CapsLockToggle
 
-imap <C-p> <C-O><Plug>CapsLockToggle
+
+
+"### Caw.vim
+nmap \c <Plug>(caw:I:toggle)
+vmap \c <Plug>(caw:I:toggle)
+
+nmap \C <Plug>(caw:I:uncomment)
+vmap \C <Plug>(caw:I:uncomment)
+
+
+
+"### Marching.vim
+let s:hooks = neobundle#get_hooks('vim-marching')
+function! s:hooks.on_post_source(bundle)
+  if !empty(g:marching_clang_command) && executable(g:marching_clang_command)
+    let g:marching_backend = 'sync_clang_command'
+  else
+    let g:marching_backend = 'wandbox'
+    let g:marching_clang_command = ''
+  endif
+  
+  let g:marching#clang_command#options = {
+  \  'cpp': '-std=gnu++1y'
+  \}
+  
+  if !neobundle#is_sourced('neocomplete.vim')
+    return
+  endif
+  
+  let g:marching_enable_neocomplete = 1
+  
+  if !exists('g:neocomplete#force_omni_input_patterns')
+    let g:neocomplete#force_omni_input_patterns = {}
+  endif
+  
+  let g:neocomplete#force_omni_input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+endfunction
+unlet s:hooks
+
+
+
+"### FileType settings
+" C++
+let $CPP_STDLIB = '/usr/include/c++/4.2.1'
+
+function! s:cpp()
+  setlocal path+=/usr/include,$CPP_STDLIB,/usr/local/include
+  
+  setlocal tabstop=4
+  setlocal shiftwidth=4
+  setlocal softtabstop=4
+  
+  setlocal matchpairs+=<:>
+  
+  syntax match boost_pp /BOOST_PP_[A-z0-9_]*/
+  highlight link boost_pp cppStatement
+endfunction
+
+augroup vimrc-cpp
+  autocmd!
+  autocmd BufReadPost $CPP_STDLIB/* if empty(&filetype) | set filetype=cpp | endif
+  autocmd FileType cpp call s:cpp()
+augroup END
+
+
+" Makefile
+function! s:makefile()
+  setlocal noexpandtab
+endfunction
+
+augroup vimrc-makefile
+  autocmd!
+  autocmd FileType makefile call s:makefile()
+augroup END

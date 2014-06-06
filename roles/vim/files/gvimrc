@@ -1,3 +1,7 @@
+scriptencoding utf-8
+filetype detect
+syntax on
+
 colorscheme delek
 
 if has('gui_macvim')
