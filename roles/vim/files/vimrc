@@ -43,7 +43,7 @@ nnoremap <Up> <NOP>
 nnoremap <Down> <NOP>
 nnoremap <Left> <NOP>
 nnoremap <Right> <NOP>
- 
+
 inoremap <Up> <NOP>
 inoremap <Down> <NOP>
 inoremap <Left> <NOP>
@@ -85,6 +85,9 @@ NeoBundle 'kien/ctrlp.vim'
 " Comment out
 NeoBundle 'tyru/caw.vim'
 
+" Show indent line
+NeoBundle 'Yggdroot/indentLine'
+
 " Wandbox
 NeoBundle 'rhysd/wandbox-vim'
 
@@ -125,6 +128,11 @@ vmap \c <Plug>(caw:I:toggle)
 
 nmap \C <Plug>(caw:I:uncomment)
 vmap \C <Plug>(caw:I:uncomment)
+
+
+
+"### IndentLine
+let g:indentLine_showFirstIndentLevel = 1
 
 
 
