@@ -193,9 +193,12 @@ augroup END
 " Makefile
 function! s:makefile()
   setlocal noexpandtab
+  setlocal tabstop=4
+  setlocal shiftwidth=4
+  setlocal softtabstop=4
 endfunction
 
 augroup vimrc-makefile
   autocmd!
-  autocmd FileType makefile call s:makefile()
+  autocmd FileType make call s:makefile()
 augroup END
