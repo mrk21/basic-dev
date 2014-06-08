@@ -35,6 +35,9 @@
     
     - src: macvim-kaoriya_rc.sh
       dest: ~/.zshrc.d/macvim-kaoriya.sh
+    
+    - src: vim_profile.sh
+      dest: ~/.zprofile.d/vim.sh
   
 - name: make directories
   file: state=directory path={{item}}

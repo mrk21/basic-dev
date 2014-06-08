@@ -172,14 +172,15 @@ function! s:add_path()
   while 1
     let l:path = l:current_dir .'/'. l:config_file
     if filereadable(l:path)
-      for $line in readfile(l:path)
-        let $line = expand($line)
-        if $line[0] != '/'
-          let $line = l:current_dir .'/'. $line
+      for $_line in readfile(l:path)
+        let $_line = expand($_line)
+        if $_line[0] != '/'
+          let $_line = l:current_dir .'/'. $_line
         endif
-        let $line = fnamemodify($line, ':p')[0:-2]
-        setlocal path+=$line
+        let $_line = fnamemodify($_line, ':p')[0:-2]
+        setlocal path+=$_line
       endfor
+      break
     endif
     if l:current_dir == '/'
       break
@@ -197,15 +198,11 @@ augroup END
 
 "### FileType settings
 " C++
-let $CPP_STDLIB = '/usr/include/c++/4.2.1'
-
 function! s:cpp()
-  setlocal path+=/usr/include,$CPP_STDLIB,/usr/local/include
-  
+  setlocal path+=$VIM_CPP_INCLUDE
   setlocal tabstop=4
   setlocal shiftwidth=4
   setlocal softtabstop=4
-  
   setlocal matchpairs+=<:>
   
   syntax match boost_pp /BOOST_PP_[A-z0-9_]*/
@@ -214,9 +211,10 @@ endfunction
 
 augroup vimrc-cpp
   autocmd!
-  autocmd BufReadPost $CPP_STDLIB/* if empty(&filetype) | set filetype=cpp | endif
+  autocmd BufReadPost $VIM_CPP_STDLIB/* if empty(&filetype) | set filetype=cpp | endif
   autocmd FileType cpp call s:cpp()
 augroup END
+
 
 
 " Makefile
