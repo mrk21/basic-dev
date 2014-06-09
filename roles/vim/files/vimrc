@@ -209,12 +209,20 @@ function! s:cpp()
   highlight link boost_pp cppStatement
 endfunction
 
+function! s:cpp_stdlib()
+  if empty(&filetype)
+    set filetype=cpp
+  elseif &filetype == 'cpp'
+    syntax on
+  endif
+endfunction
+
 augroup vimrc-cpp
   autocmd!
-  autocmd BufReadPost $VIM_CPP_STDLIB/* if empty(&filetype) | set filetype=cpp | endif
+  let $_stdlib_files = join(map(split($VIM_CPP_STDLIB,','), 'v:val . "/*"'), ',')
+  autocmd BufReadPost $_stdlib_files call s:cpp_stdlib()
   autocmd FileType cpp call s:cpp()
 augroup END
-
 
 
 " Makefile
