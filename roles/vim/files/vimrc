@@ -65,11 +65,7 @@ if has('vim_starting')
   call neobundle#rc(expand('~/.vim/bundle/'))
 endif
 
-" Input completion
-NeoBundle 'Shougo/neocomplete.vim'
-
-" Shell
-NeoBundle 'Shougo/vimshell.vim'
+" Interactive command execution
 NeoBundle 'Shougo/vimproc.vim', {
 \  'build': {
 \    'windows': 'make -f make_mingw32.mak',
@@ -78,6 +74,12 @@ NeoBundle 'Shougo/vimproc.vim', {
 \    'unix': 'make -f make_unix.mak',
 \  },
 \}
+
+" Input completion
+NeoBundle 'Shougo/neocomplete.vim'
+
+" Shell
+NeoBundle 'Shougo/vimshell.vim'
 
 " Virtual Caps Lock
 NeoBundle 'tpope/vim-capslock'
@@ -137,6 +139,16 @@ let g:neocomplete#force_omni_input_patterns.objcpp =
 
 
 
+"### vimshell.vim ###
+nnoremap <silent> ,s :<C-u>VimShell<CR>
+
+
+
+"### Capslock.vim ###
+imap <C-a> <C-O><Plug>CapsLockToggle
+
+
+
 "### unite.vim ###
 let g:unite_abbr_highlight = 'Normal'
 
@@ -155,11 +167,6 @@ nnoremap <silent> f :<C-u>call g:unite_filer()<CR>
 
 "### unite-outline ###
 nnoremap <silent> ,o :<C-u>Unite -vertical outline<CR>
-
-
-
-"### Capslock.vim ###
-imap <C-a> <C-O><Plug>CapsLockToggle
 
 
 
