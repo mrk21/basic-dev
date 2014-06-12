@@ -54,6 +54,9 @@ nnoremap o oX<C-h>
 nnoremap O OX<C-h>
 inoremap <CR> <CR>X<C-h>
 
+" other keymap
+nnoremap ; :
+
 
 
 "### NeoBundle ###
@@ -79,8 +82,8 @@ NeoBundle 'Shougo/vimproc.vim', {
 " Virtual Caps Lock
 NeoBundle 'tpope/vim-capslock'
 
-" File selector
-NeoBundle 'kien/ctrlp.vim'
+" Filer & Launcher
+NeoBundle 'Shougo/unite.vim'
 
 " Comment out
 NeoBundle 'tyru/caw.vim'
@@ -128,6 +131,20 @@ let g:neocomplete#force_omni_input_patterns.objc =
       \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
 let g:neocomplete#force_omni_input_patterns.objcpp =
       \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+
+
+
+"### unite.vim ###
+function! g:unite_filer()
+  if getcwd() == expand('~')
+    Unite file
+  else
+    Unite file_rec
+    call feedkeys('i')
+  endif
+endfunction
+
+nnoremap <silent> f :<C-u>call g:unite_filer()<CR>
 
 
 
