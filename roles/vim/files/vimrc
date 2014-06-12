@@ -85,6 +85,9 @@ NeoBundle 'tpope/vim-capslock'
 " Filer & Launcher
 NeoBundle 'Shougo/unite.vim'
 
+" Show outline
+NeoBundle 'Shougo/unite-outline'
+
 " Comment out
 NeoBundle 'tyru/caw.vim'
 
@@ -135,6 +138,8 @@ let g:neocomplete#force_omni_input_patterns.objcpp =
 
 
 "### unite.vim ###
+let g:unite_abbr_highlight = 'Normal'
+
 function! g:unite_filer()
   if getcwd() == expand('~')
     Unite file
@@ -145,6 +150,11 @@ function! g:unite_filer()
 endfunction
 
 nnoremap <silent> f :<C-u>call g:unite_filer()<CR>
+
+
+
+"### unite-outline ###
+nnoremap <silent> ,o :<C-u>Unite -vertical outline<CR>
 
 
 
