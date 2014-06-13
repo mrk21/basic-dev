@@ -153,6 +153,7 @@ imap <C-a> <C-O><Plug>CapsLockToggle
 "### unite.vim ###
 let g:unite_abbr_highlight = 'Normal'
 
+" filer
 function! g:unite_filer()
   if getcwd() == expand('~')
     Unite file
@@ -163,6 +164,13 @@ function! g:unite_filer()
 endfunction
 
 nnoremap <silent> f :<C-u>call g:unite_filer()<CR>
+
+" grep
+let g:unite_source_grep_default_opts = '-iRHn'
+
+nnoremap ,g :<C-u>Unite -buffer-name=search-buffer grep:::
+vnoremap ,g y:Unite -buffer-name=search-buffer grep:::<C-R>=escape(@", '\\.*$^[]')<CR><CR>
+nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR>
 
 
 
