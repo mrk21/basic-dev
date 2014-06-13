@@ -54,7 +54,7 @@ nnoremap o oX<C-h>
 nnoremap O OX<C-h>
 inoremap <CR> <CR>X<C-h>
 
-" other keymap
+" Transition a command mode.
 nnoremap ; :
 
 
@@ -67,13 +67,13 @@ endif
 
 " Interactive command execution
 NeoBundle 'Shougo/vimproc.vim', {
-\  'build': {
-\    'windows': 'make -f make_mingw32.mak',
-\    'cygwin': 'make -f make_cygwin.mak',
-\    'mac': 'make -f make_mac.mak',
-\    'unix': 'make -f make_unix.mak',
-\  },
-\}
+      \ 'build': {
+      \   'windows': 'make -f make_mingw32.mak',
+      \   'cygwin': 'make -f make_cygwin.mak',
+      \   'mac': 'make -f make_mac.mak',
+      \   'unix': 'make -f make_unix.mak',
+      \ },
+      \}
 
 " Input completion
 NeoBundle 'Shougo/neocomplete.vim'
@@ -81,14 +81,17 @@ NeoBundle 'Shougo/neocomplete.vim'
 " Shell
 NeoBundle 'Shougo/vimshell.vim'
 
-" Virtual Caps Lock
-NeoBundle 'tpope/vim-capslock'
-
 " Filer & Launcher
 NeoBundle 'Shougo/unite.vim'
 
 " Show outline
 NeoBundle 'Shougo/unite-outline'
+
+" Output the QuickFix content to the Unite buffer.
+NeoBundle 'osyo-manga/unite-quickfix'
+
+" Virtual Caps Lock
+NeoBundle 'tpope/vim-capslock'
 
 " Comment out
 NeoBundle 'tyru/caw.vim'
@@ -98,13 +101,13 @@ NeoBundle 'Yggdroot/indentLine'
 
 " C++ Syntax
 NeoBundleLazy 'vim-jp/cpp-vim', {
-\  'autoload': {'filetypes': 'cpp'}
-\}
+      \ 'autoload': {'filetypes': 'cpp'}
+      \}
 
 " C++ Input completion (use Clang)
 NeoBundleLazy 'Rip-Rip/clang_complete', {
-\  'autoload': {'filetypes': 'cpp'}
-\}
+      \ 'autoload': {'filetypes': 'cpp'}
+      \}
 
 
 
@@ -170,6 +173,11 @@ nnoremap <silent> ,o :<C-u>Unite -vertical outline<CR>
 
 
 
+"### unite-quickfix ###
+nnoremap <silent> ,q :<C-u>Unite quickfix<CR>
+
+
+
 "### Caw.vim
 nmap \c <Plug>(caw:I:toggle)
 vmap \c <Plug>(caw:I:toggle)
@@ -196,6 +204,25 @@ let g:clang_use_library = 1
 let g:clang_exec = $VIM_CLANG_PATH
 let g:clang_library_path = $VIM_CLANG_LIB_PATH
 let g:clang_user_options = '-std=gnu++1y -stdlib=libc++'
+
+
+
+"### Build settings
+function! s:build(...)
+  if !empty(a:000)
+    let $_build_command = join(a:000, ' ')
+  endif
+  
+  if !empty($_build_command)
+    setlocal makeprg=$_build_command
+    write
+    make
+  endif
+endfunction
+
+command! -nargs=* Build :call s:build(<f-args>)
+
+nnoremap ,b :<C-u>Build<Space>
 
 
 
