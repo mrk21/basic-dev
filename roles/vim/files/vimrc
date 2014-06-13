@@ -27,8 +27,6 @@ set showmatch
 " white characters
 set list
 set listchars=eol:$,tab:>\ ,extends:<
-highlight JpSpace cterm=underline ctermfg=Blue guifg=Blue
-autocmd BufRead,BufNew * match JpSpace /　/
 
 " indent
 set expandtab
@@ -178,7 +176,7 @@ nnoremap <silent> ,q :<C-u>Unite quickfix<CR>
 
 
 
-"### Caw.vim
+"### Caw.vim ###
 nmap \c <Plug>(caw:I:toggle)
 vmap \c <Plug>(caw:I:toggle)
 
@@ -187,12 +185,12 @@ vmap \C <Plug>(caw:I:uncomment)
 
 
 
-"### IndentLine
+"### IndentLine ###
 let g:indentLine_showFirstIndentLevel = 1
 
 
 
-"### clang_complete
+"### clang_complete ###
 let g:clang_periodic_quickfix = 0
 let g:clang_hl_errors = 0
 let g:clang_complete_copen = 1
@@ -207,15 +205,32 @@ let g:clang_user_options = '-std=gnu++1y -stdlib=libc++'
 
 
 
-"### Build settings
+"### Zenkaku Space settings ###
+function! s:show_zenkaku_space()
+  highlight zenkaku_space cterm=underline ctermfg=lightblue guibg=darkgray
+endfunction
+
+if has('syntax')
+  augroup vimrc-zenkaku_space
+    autocmd!
+    autocmd ColorScheme * call s:show_zenkaku_space()
+    autocmd VimEnter,WinEnter,BufRead * let w:m1=matchadd('zenkaku_space', '　')
+  augroup END
+  call s:show_zenkaku_space()
+endif
+
+
+
+"### Build settings ###
 function! s:build(...)
   if !empty(a:000)
     let $_build_command = join(a:000, ' ')
   endif
   
-  if !empty($_build_command)
+  if empty($_build_command)
+    echo "Build command is empty!"
+  else
     setlocal makeprg=$_build_command
-    write
     make
   endif
 endfunction
@@ -226,7 +241,7 @@ nnoremap ,b :<C-u>Build<Space>
 
 
 
-"### Path settings
+"### Path settings ###
 function! s:add_path()
   let l:config_file = '.vim-path'
   let l:current_dir = expand('%:p:h')
@@ -257,7 +272,7 @@ augroup END
 
 
 
-"### FileType settings
+"### FileType settings ###
 " C++
 function! s:cpp()
   setlocal path+=$VIM_CPP_INCLUDE
