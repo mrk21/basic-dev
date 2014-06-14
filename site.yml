@@ -25,5 +25,8 @@
     - role: typescript
       tags: typescript
     
+    - role: mysql
+      tags: mysql
+    
     - role: vim
       tags: vim
