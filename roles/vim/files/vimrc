@@ -97,6 +97,9 @@ NeoBundle 'tyru/caw.vim'
 " Show indent line
 NeoBundle 'Yggdroot/indentLine'
 
+" CoffeeScript Syntax
+NeoBundle 'kchmck/vim-coffee-script'
+
 " TypeScript Syntax
 NeoBundle 'leafgarland/typescript-vim'
 
@@ -306,6 +309,13 @@ augroup vimrc-cpp
   let $_stdlib_files = join(map(split($VIM_CPP_STDLIB,','), 'v:val . "/*"'), ',')
   autocmd BufReadPost $_stdlib_files call s:cpp_stdlib()
   autocmd FileType cpp call s:cpp()
+augroup END
+
+
+" CoffeeScript
+augroup vimrc-coffeescript
+  autocmd!
+  autocmd! BufReadPost *.coffee.erb set filetype=coffee
 augroup END
 
 

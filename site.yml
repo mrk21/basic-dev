@@ -19,6 +19,9 @@
     - role: ruby
       tags: ruby
     
+    - role: coffeescript
+      tags: coffeescript
+    
     - role: typescript
       tags: typescript
     
