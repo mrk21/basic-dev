@@ -101,9 +101,7 @@ NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'leafgarland/typescript-vim'
 
 " C++ Syntax
-NeoBundleLazy 'vim-jp/cpp-vim', {
-      \ 'autoload': {'filetypes': 'cpp'}
-      \}
+NeoBundleLazy 'vim-jp/cpp-vim'
 
 " C++ Input completion (use Clang)
 NeoBundleLazy 'Rip-Rip/clang_complete', {
