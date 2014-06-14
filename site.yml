@@ -10,9 +10,6 @@
     - role: zsh
       tags: zsh
     
-    - role: vim
-      tags: vim
-    
     - role: cpp
       tags: cpp
     
@@ -21,3 +18,9 @@
       
     - role: ruby
       tags: ruby
+    
+    - role: typescript
+      tags: typescript
+    
+    - role: vim
+      tags: vim

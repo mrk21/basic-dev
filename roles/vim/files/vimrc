@@ -97,6 +97,9 @@ NeoBundle 'tyru/caw.vim'
 " Show indent line
 NeoBundle 'Yggdroot/indentLine'
 
+" TypeScript Syntax
+NeoBundle 'leafgarland/typescript-vim'
+
 " C++ Syntax
 NeoBundleLazy 'vim-jp/cpp-vim', {
       \ 'autoload': {'filetypes': 'cpp'}
@@ -169,7 +172,7 @@ nnoremap <silent> f :<C-u>call g:unite_filer()<CR>
 let g:unite_source_grep_default_opts = '-iRHn'
 
 nnoremap ,g :<C-u>Unite -buffer-name=search-buffer grep:::
-vnoremap ,g y:Unite -buffer-name=search-buffer grep:::<C-R>=escape(@", ':\\.*$^[]')<CR><CR>
+vnoremap <silent> ,g y:Unite -buffer-name=search-buffer grep:::<C-R>=escape(@", ':\\.*$^[]')<CR><CR>
 nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR>
 
 
@@ -235,12 +238,11 @@ function! s:build(...)
     let $_build_command = join(a:000, ' ')
   endif
   
-  if empty($_build_command)
-    echo "Build command is empty!"
-  else
+  if !empty($_build_command)
     setlocal makeprg=$_build_command
-    make
   endif
+  
+  make
 endfunction
 
 command! -nargs=* Build :call s:build(<f-args>)
