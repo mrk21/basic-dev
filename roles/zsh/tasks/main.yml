@@ -1,4 +1,12 @@
 ---
+- name: get user name
+  command: whoami
+  register: result
+  
+- name: change default shell
+  sudo: yes
+  command: chsh -s /bin/zsh {{result.stdout}}
+  
 - name: make directory
   file: state=directory path={{item}}
   with_items:
