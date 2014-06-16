@@ -97,6 +97,9 @@ NeoBundle 'tyru/caw.vim'
 " Show indent line
 NeoBundle 'Yggdroot/indentLine'
 
+" Highlight QuickFix
+NeoBundle "jceb/vim-hier"
+
 " YAML Syntax (with Ansible PlayBook highlighting)
 NeoBundle 'chase/vim-ansible-yaml'
 
