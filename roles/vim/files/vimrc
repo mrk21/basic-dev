@@ -97,6 +97,9 @@ NeoBundle 'tyru/caw.vim'
 " Show indent line
 NeoBundle 'Yggdroot/indentLine'
 
+" YAML Syntax (with Ansible PlayBook highlighting)
+NeoBundle 'chase/vim-ansible-yaml'
+
 " CoffeeScript Syntax
 NeoBundle 'kchmck/vim-coffee-script'
 
