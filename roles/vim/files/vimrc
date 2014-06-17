@@ -242,7 +242,7 @@ endif
 "### Build settings ###
 function! s:build(...)
   if !empty(a:000)
-    let $_build_command = join(a:000, ' ')
+    let $_build_command = 'zsh -i -l -c "'. join(a:000, ' ') .'"'
   endif
   
   if !empty($_build_command)
@@ -321,7 +321,7 @@ augroup END
 " CoffeeScript
 augroup vimrc-coffeescript
   autocmd!
-  autocmd! BufReadPost *.coffee.erb set filetype=coffee
+  autocmd BufReadPost *.coffee.erb setlocal filetype=coffee
 augroup END
 
 
