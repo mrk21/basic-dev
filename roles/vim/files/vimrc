@@ -100,8 +100,8 @@ NeoBundle 'Yggdroot/indentLine'
 " Highlight QuickFix
 NeoBundle "jceb/vim-hier"
 
-" YAML Syntax (with Ansible PlayBook highlighting)
-NeoBundle 'chase/vim-ansible-yaml'
+" YAML syntax/indent
+NeoBundle 'mrk21/yaml-vim'
 
 " CoffeeScript Syntax
 NeoBundle 'kchmck/vim-coffee-script'
