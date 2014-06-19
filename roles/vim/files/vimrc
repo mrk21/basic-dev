@@ -245,13 +245,10 @@ endif
 function! s:build(...)
   if !empty(a:000)
     let $_build_command = 'zsh -i -l -c "'. join(a:000, ' ') .'"'
-  endif
-  
-  if !empty($_build_command)
     setlocal makeprg=$_build_command
   endif
   
-  make
+  make!
 endfunction
 
 command! -nargs=* Build :call s:build(<f-args>)
