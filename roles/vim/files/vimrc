@@ -190,6 +190,8 @@ nnoremap <silent> ,o :<C-u>Unite -vertical outline<CR>
 
 
 "### unite-quickfix ###
+let g:unite_quickfix_filename_is_pathshorten = 0
+
 nnoremap <silent> ,q :<C-u>Unite quickfix<CR>
 
 
