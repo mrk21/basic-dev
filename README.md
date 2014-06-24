@@ -3,10 +3,15 @@ basic-dev
 
 My basic development environment.
 
-Usage
-=========
+## Usage
 
-Development environment is built by executing the commands shown below.
+**1. Install Ansible:**
+
+```sh
+$ rake ansible
+```
+
+**2. Run Ansible playbooks:**
 
 ```sh
 $ rake
