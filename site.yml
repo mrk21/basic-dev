@@ -28,5 +28,8 @@
     - role: mysql
       tags: mysql
     
+    - role: postgresql
+      tags: postgresql
+    
     - role: vim
       tags: vim
