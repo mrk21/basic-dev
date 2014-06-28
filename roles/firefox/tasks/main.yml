@@ -1,0 +1,13 @@
+---
+- name: install
+  sudo: yes
+  homebrew_cask: name={{item}} state=present
+  with_items:
+    - firefox
+  
+- name: link apps
+  sudo: yes
+  file: state=link src={{item.src}} dest={{item.dest}}
+  with_items:
+    - src: /opt/homebrew-cask/Caskroom/firefox/latest/Firefox.app
+      dest: /Applications/Firefox.app

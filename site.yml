@@ -31,5 +31,8 @@
     - role: postgresql
       tags: postgresql
     
+    - role: firefox
+      tags: firefox
+    
     - role: vim
       tags: vim
