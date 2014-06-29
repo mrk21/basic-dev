@@ -5,9 +5,13 @@
   with_items:
     - firefox
   
-- name: link apps
+- name: |
+    HACK: swapping Caskroom/firefox/latest/Firefox.app and /Applications/Firefox.app.
+    In order to use the 1Password addon, Firefox.app should exist on the /Application.
   sudo: yes
-  file: state=link src={{item.src}} dest={{item.dest}}
-  with_items:
-    - src: /opt/homebrew-cask/Caskroom/firefox/latest/Firefox.app
-      dest: /Applications/Firefox.app
+  shell: >
+    creates=/opt/homebrew-cask/Caskroom/firefox/latest/.swapped
+    rm -f /Applications/Firefox.app;
+    mv /opt/homebrew-cask/Caskroom/firefox/latest/Firefox.app /Applications/Firefox.app;
+    ln -s /Applications/Firefox.app /opt/homebrew-cask/Caskroom/firefox/latest/Firefox.app;
+    touch /opt/homebrew-cask/Caskroom/firefox/latest/.swapped;

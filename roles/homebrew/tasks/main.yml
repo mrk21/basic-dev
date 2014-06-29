@@ -9,3 +9,9 @@
 
 - name: install homebrew-cask
   homebrew: name=brew-cask state=present
+  
+- name: copy homebrew-cask config
+  copy: src={{item.src}} dest={{item.dest}}
+  with_items:
+    - src: profile.sh
+      dest: ~/.zprofile.d/homebrew.sh
