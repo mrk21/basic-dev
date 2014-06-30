@@ -2,7 +2,8 @@ task :default => :playbook
 
 desc 'Run ansible-playbook'
 task :playbook do
-  sh "ansible-playbook -K -i inventory.ini site.yml #{ENV['args']}"
+  tag_option = "-t #{ENV['t']}" if ENV['t']
+  sh "ansible-playbook -K -i inventory.ini site.yml #{tag_option}"
 end
 
 desc 'Install/Upgrade Ansible'
