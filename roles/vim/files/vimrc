@@ -244,7 +244,7 @@ endif
 "### Build settings ###
 function! s:BuildCmd(...)
   if !empty(a:000)
-    let &l:makeprg = 'zsh -i -l -c "'. join(a:000, ' ') .'"'
+    let &makeprg = 'zsh -i -l -c "'. join(a:000, ' ') .'"'
   endif
   
   make!
