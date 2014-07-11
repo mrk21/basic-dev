@@ -19,11 +19,11 @@
   with_items:
     - 1.9.3-p547
     - 2.0.0-p481
-    - 2.1.1
+    - 2.1.2
 
 - name: using latest version
   shell: >
-    rbenv global 2.1.1;
+    rbenv global 2.1.2;
     rbenv rehash;
 
 - name: install bundler
