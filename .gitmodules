@@ -1,0 +1,3 @@
+[submodule "library/ansible-lib"]
+	path = library/ansible-lib
+	url = https://github.com/mrk21/ansible-lib.git
