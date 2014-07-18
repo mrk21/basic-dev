@@ -47,6 +47,7 @@
 - name: get project root
   command: pwd
   register: result
+  changed_when: False
   
 - name: link vimrc
   file: >

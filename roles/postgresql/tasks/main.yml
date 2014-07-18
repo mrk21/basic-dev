@@ -12,6 +12,7 @@
   
 - name: get install path
   register: result
+  changed_when: False
   shell: >
     cd $(dirname $(which psql))/$(dirname $(readlink $(which psql)))/../; pwd
   

@@ -2,6 +2,7 @@
 - name: get user name
   command: whoami
   register: result
+  changed_when: False
   
 - name: change default shell
   sudo: yes
