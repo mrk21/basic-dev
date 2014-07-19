@@ -16,6 +16,11 @@
     ln -s /Applications/Firefox.app /opt/homebrew-cask/Caskroom/firefox/latest/Firefox.app;
     touch /opt/homebrew-cask/Caskroom/firefox/latest/.swapped;
   
+- name: install firebrew
+  gem: name={{item}} state=present
+  with_items:
+    - firebrew
+  
 - name: install add-ons
   firebrew: name='{{item}}' state=present
   with_items:
