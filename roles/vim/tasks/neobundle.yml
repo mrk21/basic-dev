@@ -10,8 +10,19 @@
     repo=https://github.com/Shougo/neobundle.vim.git
     dest=~/.vim/bundle/neobundle.vim
 
+- name: install neobundle-cmd
+  gem: name={{item}} state=present
+  with_items:
+    - neobundle
+
 - name: bundle clean
-  command: /Applications/MacVim.app/Contents/MacOS/Vim -c NeoBundleClean -c q
+  command: neobundle clean
+  register: result
+  changed_when: result.rc == 0
+  failed_when: result.rc not in [0,4]
 
 - name: bundle install
-  command: /Applications/MacVim.app/Contents/MacOS/Vim -c NeoBundleInstall -c q
+  command: neobundle install
+  register: result
+  changed_when: result.rc == 0
+  failed_when: result.rc not in [0,4]
