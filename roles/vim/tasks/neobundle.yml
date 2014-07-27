@@ -19,10 +19,10 @@
   command: neobundle clean
   register: result
   changed_when: result.rc == 0
-  failed_when: result.rc not in [0,4]
+  failed_when: result.rc == 1
 
 - name: bundle install
   command: neobundle install
   register: result
   changed_when: result.rc == 0
-  failed_when: result.rc not in [0,4]
+  failed_when: result.rc == 1
