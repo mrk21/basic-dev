@@ -117,6 +117,13 @@ NeoBundleLazy 'Rip-Rip/clang_complete', {
       \ 'autoload': {'filetypes': 'cpp'}
       \}
 
+" Vimperator Syntax
+NeoBundle 'https://vimperator-labs.googlecode.com/hg/', {
+      \ 'name': 'vimperator-syntax',
+      \ 'type': 'hg',
+      \ 'rtp':  'vimperator/contrib/vim/'
+      \}
+
 
 
 "### NeoComplete.vim ###
@@ -288,13 +295,6 @@ augroup END
 
 
 "### FileType settings ###
-" Vim
-augroup s:augroup_vim
-  autocmd!
-  autocmd BufReadPost *vimperatorrc setlocal filetype=vim
-augroup END
-
-
 " C++
 let $_vim_cpp_stdlib_files = join(map(split($VIM_CPP_STDLIB,','), 'v:val . "/*"'), ',')
 
