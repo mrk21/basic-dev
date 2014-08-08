@@ -34,6 +34,9 @@
     - role: postgresql
       tags: postgresql
     
+    - role: karabiner
+      tags: karabiner
+    
     - role: firefox
       tags: firefox
     

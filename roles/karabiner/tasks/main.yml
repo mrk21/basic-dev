@@ -1,0 +1,4 @@
+- name: install
+  homebrew_cask: name={{item}} state=present
+  with_items:
+    - karabiner
