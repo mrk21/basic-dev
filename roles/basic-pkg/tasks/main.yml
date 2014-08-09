@@ -12,7 +12,6 @@
     - md5sha1sum
 
 - name: install cask packages
-  sudo: yes
   homebrew_cask: name={{item}} state=present
   with_items:
     - virtualbox
