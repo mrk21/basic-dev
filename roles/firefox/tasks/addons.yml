@@ -1,0 +1,25 @@
+---
+- name: install firebrew
+  gem: name={{item}} state=present
+  with_items:
+    - firebrew
+  
+- name: install add-ons
+  firebrew: name='{{item}}' state=present
+  with_items:
+    - Japanese Language Pack
+    - Vimperator
+  
+- name: get project root
+  command: pwd
+  register: result
+  changed_when: False
+  
+- name: link .vimperatorrc
+  file: >
+    state=link
+    force=yes
+    src={{result.stdout}}/roles/firefox/files/{{item}}
+    dest=~/.{{item}}
+  with_items:
+    - vimperatorrc
