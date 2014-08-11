@@ -1,10 +1,5 @@
 set verbose=9
 
-nnoremap <C-c> <Esc>
-vnoremap <C-c> <Esc>
-inoremap <C-c> <Esc>
-cnoremap <C-c> <Esc>
-
 nnoremap ; :
 
 nnoremap j 3<C-e>

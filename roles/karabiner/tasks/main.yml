@@ -2,3 +2,8 @@
   homebrew_cask: name={{item}} state=present
   with_items:
     - karabiner
+
+- name: copy private.xml
+  copy: >
+    src=private.xml
+    dest=~/Library/Application\ Support/Karabiner/private.xml

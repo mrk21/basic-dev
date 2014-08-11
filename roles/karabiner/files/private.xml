@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<root>
+  <item>
+    <name>Support the "C-[" escape key for Vimperator</name>
+    <identifier>private.firefox_vimperator_escape</identifier>
+    <only>FIREFOX</only>
+    <autogen>__KeyToKey__ KeyCode::BRACKET_LEFT, ModifierFlag::CONTROL_L, KeyCode::ESCAPE</autogen>
+  </item>
+</root>
