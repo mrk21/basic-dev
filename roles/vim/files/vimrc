@@ -36,7 +36,7 @@ set softtabstop=2
 set autoindent
 set smartindent
 
-" disable cusor key
+" Disable cusor key.
 nnoremap <Up> <NOP>
 nnoremap <Down> <NOP>
 nnoremap <Left> <NOP>
@@ -47,13 +47,17 @@ inoremap <Down> <NOP>
 inoremap <Left> <NOP>
 inoremap <Right> <NOP>
 
-" keep indent of blank line
+" Keep indent of blank line.
 nnoremap o oX<C-h>
 nnoremap O OX<C-h>
 inoremap <CR> <CR>X<C-h>
 
-" Transition a command mode.
+" Transition a command mode without entering a shift key.
 nnoremap ; :
+
+" Tab move
+nnoremap <C-l> gt
+nnoremap <C-h> gT
 
 
 
