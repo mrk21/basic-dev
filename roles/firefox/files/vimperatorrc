@@ -4,6 +4,10 @@ set focuscontent
 " Transition a command mode without entering a shift key.
 nnoremap ; :
 
+" Tab move
+nnoremap <C-l> gt
+nnoremap <C-h> gT
+
 " Scroll increment
 nnoremap j 3<C-e>
 nnoremap k 3<C-y>
