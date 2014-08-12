@@ -1,9 +1,25 @@
 set verbose=9
+set focuscontent
 
+" Transition a command mode without entering a shift key.
 nnoremap ; :
 
+" Scroll increment
 nnoremap j 3<C-e>
 nnoremap k 3<C-y>
 
-set focuscontent
+" Disable IME on a command mode.
+style! -name=commandline-ime chrome://* #liberator-commandline-command input {ime-mode: inactive;}
+
+" Hint mode
 set hintchars=fjklasdhguionmerwc
+highlight Hint <<CSS
+  z-index: 2147483647; /* z-index upper limit value: 0x7FFFFFFF */
+  padding: 0px 2px 0px 2px;
+  font-family: Menlo, Consolas, Monaco, monospace;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background-color: #ff0000;
+CSS
