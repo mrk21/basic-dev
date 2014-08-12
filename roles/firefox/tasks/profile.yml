@@ -1,0 +1,16 @@
+---
+- name: get profile dir
+  changed_when: False
+  register: result
+  shell: |
+    ruby -e '
+      base_dir = File.expand_path("~/Library/Application Support/Firefox");
+      ini = File.read("#{base_dir}/profiles.ini");
+      profiles = ini.scan(/\[Profile\d+\][^\[]+\n{2}/m);
+      default_profile = profiles.find{|v| v.match(/^Default=1$/)};
+      profile_path = default_profile.match(/^Path=([\w\/.]+)$/)[1];
+      print "#{base_dir}/#{profile_path}";
+    '
+  
+- name: copy user.js
+  copy: src=user.js dest='{{result.stdout}}/user.js'

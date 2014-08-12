@@ -1,3 +1,4 @@
 ---
 - include: firefox.yml
+- include: profile.yml
 - include: addons.yml
