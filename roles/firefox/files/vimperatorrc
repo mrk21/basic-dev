@@ -48,6 +48,9 @@ nnoremap k 3<C-y>
 " Disable IME on a command mode.
 style! -name=commandline-ime chrome://* #liberator-commandline-command input {ime-mode: inactive;}
 
+" Clip a current page by Evernote.
+nnoremap e :javascript<Space>evernote_doAction();<CR>
+
 " Hint mode
 set hintchars=fjklasdhguionmerwc
 highlight Hint <<CSS

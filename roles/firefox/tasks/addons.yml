@@ -9,6 +9,7 @@
   with_items:
     - Japanese Language Pack
     - Vimperator
+    - Evernote Web Clipper
   
 - name: get project root
   command: pwd
