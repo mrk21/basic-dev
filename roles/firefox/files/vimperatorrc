@@ -1,5 +1,38 @@
 set verbose=9
 set focuscontent
+set gui=nonavigation
+
+" Toggle navigation bar.
+nnoremap v :javascript<Space>ToggleNavigationBar();<CR>
+javascript <<JS
+  function ToggleNavigationBar() {
+    var gui = options.get('gui');
+    var isDisplayingNavigationBar = gui.getValues().find(function(v){
+      return v == 'navigation';
+    });
+    gui.set(isDisplayingNavigationBar ? 'nonavigation' : 'navigation');
+  };
+JS
+
+" Disable browser key maps.
+noremap <M-t> <Nop>
+noremap <M-f> <Nop>
+noremap <M-S-h> <Nop>
+noremap <M-b> <Nop>
+
+inoremap <M-t> <Nop>
+inoremap <M-f> <Nop>
+inoremap <M-S-h> <Nop>
+inoremap <M-b> <Nop>
+
+" Use a tab close of the browser.
+nnoremap d :javascript<Space>CloseCurrentTab();<CR>
+nnoremap ,d d
+javascript <<JS
+  function CloseCurrentTab() {
+    events.feedkeys(tabs.count == 1 ? '<Esc>,d' : '<M-w>');
+  }
+JS
 
 " Transition a command mode without entering a shift key.
 nnoremap ; :
