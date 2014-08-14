@@ -14,5 +14,5 @@ $ rake ansible
 **2. Run Ansible playbooks:**
 
 ```sh
-$ rake
+$ rake [t=<tag-name>]
 ```
