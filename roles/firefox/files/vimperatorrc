@@ -63,3 +63,18 @@ highlight Hint <<CSS
   color: #ffffff;
   background-color: #ff0000;
 CSS
+
+" Hatena Bookmark plugin
+style! -name=hatena-bookmark-toolbar chrome://* #hBookmarkToolbar {display: none;}
+
+javascript <<JS
+  if (typeof hBookmark != 'undefined') {
+    liberator.globalVariables.hBookmark_shortcuts = {
+      hintsAdd: ',C',
+      hintsComment: ',c',
+      add: [',C'],
+      comment: [',c'],
+    };
+    liberator.loadScript('chrome://hatenabookmark/content/vimperator/plugin/hatenabookmark.js', {__proto__: this});
+  }
+JS
