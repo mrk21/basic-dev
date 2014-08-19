@@ -10,7 +10,6 @@
     - Japanese Language Pack
     - Vimperator
     - Evernote Web Clipper
-    - 1Password
   
 - name: get project root
   command: pwd
