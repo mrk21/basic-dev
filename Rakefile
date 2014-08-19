@@ -11,3 +11,8 @@ task :ansible do
   sh "sudo easy_install pip"
   sh "sudo pip install -U ansible"
 end
+
+desc 'Export Karabiner settings'
+task :karabiner do
+  sh "/Applications/Karabiner.app/Contents/Library/bin/karabiner export > ./roles/karabiner/files/settings.sh"
+end
