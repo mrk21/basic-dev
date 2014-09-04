@@ -25,3 +25,19 @@
     dest=~/.{{item}}
   with_items:
     - vimperatorrc
+  
+- name: create plugin dir
+  file: >
+    state=directory
+    path=~/.vimperator/plugin
+    
+- name: clone plugins
+  git: >
+    repo=https://github.com/vimpr/vimperator-plugins
+    dest=~/.vimperator/vimperator-plugins
+  
+- name: set plugins
+  file: >
+    state=link
+    src=~/.vimperator/vimperator-plugins/appendAnchor.js
+    dest=~/.vimperator/plugin/appendAnchor.js
