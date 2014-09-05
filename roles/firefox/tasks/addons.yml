@@ -39,5 +39,8 @@
 - name: set plugins
   file: >
     state=link
-    src=~/.vimperator/vimperator-plugins/appendAnchor.js
-    dest=~/.vimperator/plugin/appendAnchor.js
+    src=~/.vimperator/vimperator-plugins/{{item}}
+    dest=~/.vimperator/plugin/{{item}}
+  with_items:
+    - appendAnchor.js
+    - forcefocuscontent.js
