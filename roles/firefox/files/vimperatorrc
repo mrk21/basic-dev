@@ -66,6 +66,17 @@ highlight Hint <<CSS
   background-color: #ff0000;
 CSS
 
+" plugin loader
+javascript <<JS
+  liberator.globalVariables.plugin_loader_roots = [
+    '~/.vimperator/vimperator-plugins/'
+  ];
+  liberator.globalVariables.plugin_loader_plugins = [
+    'appendAnchor',
+    'forcefocuscontent'
+  ];
+JS
+
 " Hatena Bookmark plugin
 style! -name=hatena-bookmark-toolbar chrome://* #hBookmarkToolbar {display: none;}
 

@@ -1,17 +1,4 @@
 ---
-- name: install firebrew
-  gem: name={{item}} state=present
-  with_items:
-    - firebrew
-  
-- name: install add-ons
-  firebrew: name='{{item}}' state=present
-  with_items:
-    - Japanese Language Pack
-    - Vimperator
-    - Evernote Web Clipper
-    - Hatena Bookmark
-  
 - name: get project root
   command: pwd
   register: result
@@ -31,7 +18,7 @@
     state=directory
     path=~/.vimperator/plugin
     
-- name: clone plugins
+- name: clone vimperator-plugins
   git: >
     repo=https://github.com/vimpr/vimperator-plugins
     dest=~/.vimperator/vimperator-plugins
@@ -42,5 +29,5 @@
     src=~/.vimperator/vimperator-plugins/{{item}}
     dest=~/.vimperator/plugin/{{item}}
   with_items:
-    - appendAnchor.js
-    - forcefocuscontent.js
+    - _libly.js
+    - plugin_loader.js

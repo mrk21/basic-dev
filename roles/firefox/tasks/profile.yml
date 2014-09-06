@@ -1,4 +1,9 @@
 ---
+- name: install firebrew
+  gem: name={{item}} state=present
+  with_items:
+    - firebrew
+  
 - name: get profile dir
   changed_when: False
   register: result
@@ -6,3 +11,11 @@
   
 - name: copy user.js
   copy: src=user.js dest='{{result.stdout}}/user.js'
+  
+- name: install add-ons
+  firebrew: name='{{item}}' state=present
+  with_items:
+    - Japanese Language Pack
+    - Vimperator
+    - Evernote Web Clipper
+    - Hatena Bookmark

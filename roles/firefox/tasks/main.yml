@@ -1,4 +1,4 @@
 ---
 - include: firefox.yml
 - include: profile.yml
-- include: addons.yml
+- include: vimperator.yml
