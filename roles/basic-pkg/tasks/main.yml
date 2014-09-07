@@ -1,4 +1,9 @@
 ---
+- name: add homebrew repositories
+  homebrew_tap: tap={{item}} state=present
+  with_items:
+    - peco/peco
+  
 - name: install
   homebrew: state=present name={{item}}
   with_items:
@@ -10,7 +15,8 @@
     - cmake
     - ffmpeg
     - md5sha1sum
-
+    - peco
+  
 - name: install cask packages
   homebrew_cask: name={{item}} state=present
   with_items:
