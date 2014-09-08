@@ -16,3 +16,4 @@
   with_items:
     - llvm33
     - llvm34
+    - llvm35
