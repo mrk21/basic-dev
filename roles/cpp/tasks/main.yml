@@ -17,3 +17,16 @@
     - llvm33
     - llvm34
     - llvm35
+
+- name: install Qt
+  homebrew: name={{item}} state=present
+  with_items:
+    - qt5
+
+- name: link apps Designer.app, etc
+  command: brew linkapps
+
+- name: install Qt Creator
+  homebrew_cask: name={{item}} state=present
+  with_items:
+    - qt-creator
