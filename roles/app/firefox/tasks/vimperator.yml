@@ -8,7 +8,7 @@
   file: >
     state=link
     force=yes
-    src={{result.stdout}}/roles/firefox/files/{{item}}
+    src={{result.stdout}}/roles/app/firefox/files/{{item}}
     dest=~/.{{item}}
   with_items:
     - vimperatorrc

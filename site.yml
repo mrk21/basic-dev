@@ -1,44 +1,11 @@
 ---
 - hosts: all
   roles:
-    - role: homebrew
-      tags: homebrew
-      
-    - role: basic-pkg
-      tags: basic-pkg
+    - role: base
+      tags: base
     
-    - role: zsh
-      tags: zsh
+    - role: dev
+      tags: dev
     
-    - role: git
-      tags: git
-    
-    - role: cpp
-      tags: cpp
-    
-    - role: node
-      tags: node
-      
-    - role: ruby
-      tags: ruby
-    
-    - role: coffeescript
-      tags: coffeescript
-    
-    - role: typescript
-      tags: typescript
-    
-    - role: mysql
-      tags: mysql
-    
-    - role: postgresql
-      tags: postgresql
-    
-    - role: karabiner
-      tags: karabiner
-    
-    - role: firefox
-      tags: firefox
-    
-    - role: vim
-      tags: vim
+    - role: app
+      tags: app

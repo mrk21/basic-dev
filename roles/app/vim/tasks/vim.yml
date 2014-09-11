@@ -53,7 +53,7 @@
   file: >
     state=link
     force=yes
-    src={{result.stdout}}/roles/vim/files/{{item}}
+    src={{result.stdout}}/roles/app/vim/files/{{item}}
     dest=~/.{{item}}
   with_items:
     - vimrc

@@ -1,0 +1,10 @@
+---
+dependencies:
+  - role: app/karabiner
+    tags: karabiner
+  
+  - role: app/firefox
+    tags: firefox
+  
+  - role: app/vim
+    tags: vim

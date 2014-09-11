@@ -1,0 +1,10 @@
+---
+dependencies:
+  - role: base/homebrew
+    tags: homebrew
+  
+  - role: base/basic-pkg
+    tags: basic-pkg
+  
+  - role: base/zsh
+    tags: zsh

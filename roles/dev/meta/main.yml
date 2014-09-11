@@ -1,0 +1,25 @@
+---
+dependencies:
+  - role: dev/git
+    tags: git
+  
+  - role: dev/cpp
+    tags: cpp
+  
+  - role: dev/node
+    tags: node
+  
+  - role: dev/ruby
+    tags: ruby
+  
+  - role: dev/mysql
+    tags: mysql
+  
+  - role: dev/postgresql
+    tags: postgresql
+  
+  - role: dev/coffeescript
+    tags: coffeescript
+  
+  - role: dev/typescript
+    tags: typescript
