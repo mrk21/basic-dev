@@ -1,5 +1,8 @@
 ---
 dependencies:
+  - role: base
+  
+  # sub roles
   - role: dev/git
     tags: git
   
