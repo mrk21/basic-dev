@@ -3,6 +3,9 @@ dependencies:
   - role: base
   
   # sub roles
+  - role: app/basic-pkg
+    tags: app-basic-pkg
+  
   - role: app/karabiner
     tags: karabiner
   
