@@ -14,5 +14,6 @@
     - pkg-config
     - cmake
     - ffmpeg
+    - imagemagick
     - md5sha1sum
     - peco
