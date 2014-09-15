@@ -12,6 +12,24 @@
 - name: copy user.js
   copy: src=user.js dest='{{result.stdout}}/user.js'
   
+- name: initialize search engines
+  register: result
+  changed_when: result.rc == 0
+  failed_when: False
+  command: |
+    ruby -e "
+      require 'json';
+      path = '{{result.stdout}}/search.json';
+      data = JSON.parse(File.read(path));
+      data['directories'].each{|(k,v)|
+        v['engines'].each{|vv|
+          exit 1 if vv['_hidden'] == true;
+          vv['_hidden'] = true unless vv['_name'] == 'Google';
+        };
+      };
+      File.write(path, JSON.generate(data));
+    "
+  
 - name: install add-ons
   firebrew: name='{{item}}' state=present
   with_items:
