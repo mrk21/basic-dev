@@ -1,6 +1,7 @@
 set verbose=9
 set focuscontent
 set gui=nonavigation
+set defsearch=google
 
 " Toggle navigation bar.
 nnoremap v :javascript<Space>ToggleNavigationBar();<CR>
