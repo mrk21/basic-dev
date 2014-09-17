@@ -26,6 +26,11 @@
 - name: link apps Designer.app, etc
   command: brew linkapps
 
+- name: copy zsh profile for Qt
+  copy: >
+    src=qt_profile.sh
+    dest=~/.zprofile.d/qt.sh
+
 - name: install Qt Creator
   homebrew_cask: name={{item}} state=present
   with_items:
