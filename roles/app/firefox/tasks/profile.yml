@@ -23,7 +23,7 @@
       data = JSON.parse(File.read(path));
       data['directories'].each{|(k,v)|
         v['engines'].each{|vv|
-          is_hiding = !['Google','Translate','Oxford'].include?(vv['_name']);
+          is_hiding = !['Google','Translate','Oxford','GitHub'].include?(vv['_name']);
           exit 1 if is_hiding && vv['_hidden'];
           vv['_hidden'] = is_hiding;
         };
@@ -47,6 +47,12 @@
   vars:
     name: oxford
     icon_url: http://www.oxfordlearnersdictionaries.com/favicon.ico
+  
+- name: copy the github search engine
+  include: _search_engine.yml
+  vars:
+    name: github
+    icon_url: https://github.com/favicon.ico 
   
 - name: install add-ons
   firebrew: name='{{item}}' state=present
