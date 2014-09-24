@@ -17,4 +17,4 @@ response = connection.getresponse()
 data = response.read()
 connection.close()
 
-print base64.b64encode(data)
+sys.stdout.write(base64.b64encode(data))
