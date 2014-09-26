@@ -9,6 +9,9 @@ dependencies:
   - role: app/karabiner
     tags: karabiner
   
+  - role: app/iterm2
+    tags: item2
+  
   - role: app/firefox
     tags: firefox
   
