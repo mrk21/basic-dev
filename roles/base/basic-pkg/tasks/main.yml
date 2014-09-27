@@ -17,3 +17,29 @@
     - imagemagick
     - md5sha1sum
     - peco
+    - bash
+    - openssl
+  
+- name: force link [bash, openssl]
+  register: result
+  changed_when: result.stderr.find('Already linked') == -1
+  command: brew link {{item}} --force
+  with_items:
+    - bash
+    - openssl
+  
+- name: replace "/bin/sh" and "/bin/bash"
+  sudo: yes
+  register: result
+  changed_when: result.rc == 2
+  shell: "
+    if ! readlink /bin/bash > /dev/null; then
+      exit 2;
+    fi;
+    cp /bin/bash /bin/bash.system;
+    cp /bin/sh /bin/sh.system;
+    chmod a-x /bin/bash.system;
+    chmod a-x /bin/sh.system;
+    ln -fs /usr/local/bin/bash /bin/bash;
+    ln -fs /usr/local/bin/bash /bin/sh;
+  "
