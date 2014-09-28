@@ -9,3 +9,6 @@ dependencies:
   
   - role: base/basic-pkg
     tags: basic-pkg
+  
+  - role: base/tmux
+    tags: tmux

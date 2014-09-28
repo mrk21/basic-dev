@@ -10,7 +10,7 @@ dependencies:
     tags: karabiner
   
   - role: app/iterm2
-    tags: item2
+    tags: iterm2
   
   - role: app/firefox
     tags: firefox
