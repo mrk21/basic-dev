@@ -1,0 +1,6 @@
+---
+- name: install
+  homebrew: state=present name={{item}}
+  with_items:
+    - ghc
+    - cabal-install

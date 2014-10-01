@@ -26,3 +26,6 @@ dependencies:
   
   - role: dev/typescript
     tags: typescript
+  
+  - role: dev/haskell
+    tags: haskell
