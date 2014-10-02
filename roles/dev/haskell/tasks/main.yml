@@ -4,3 +4,17 @@
   with_items:
     - ghc
     - cabal-install
+  
+- name: copy cabal zsh profile
+  copy: src={{item}} dest=~/.zprofile.d/{{item}}
+  with_items:
+    - cabal_profile.sh
+  
+- name: update cabal packages
+  command: cabal update
+  
+- name: install ghc-mod
+  command: cabal install {{item}}
+  with_items:
+    - happy
+    - ghc-mod

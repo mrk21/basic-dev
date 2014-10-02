@@ -128,6 +128,21 @@ NeoBundle 'https://vimperator-labs.googlecode.com/hg/', {
       \ 'rtp':  'vimperator/contrib/vim/'
       \}
 
+" Haskell Syntax
+NeoBundleLazy 'dag/vim2hs', {
+      \ 'autoload': {'filetypes': 'haskell'}
+      \}
+
+" Haskell Static analisis (use ghc-mod)
+NeoBundleLazy 'eagletmt/ghcmod-vim', {
+      \ 'autoload': {'filetypes': 'haskell'}
+      \}
+
+" Haskell Input completion
+NeoBundleLazy 'eagletmt/neco-ghc', {
+      \ 'autoload': {'filetypes': 'haskell'}
+      \}
+
 
 
 "### NeoComplete.vim ###
