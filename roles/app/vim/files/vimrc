@@ -121,6 +121,9 @@ NeoBundleLazy 'Rip-Rip/clang_complete', {
       \ 'autoload': {'filetypes': 'cpp'}
       \}
 
+" Wandbox
+NeoBundle 'rhysd/wandbox-vim'
+
 " Vimperator Syntax
 NeoBundle 'https://vimperator-labs.googlecode.com/hg/', {
       \ 'name': 'vimperator-syntax',
@@ -248,6 +251,31 @@ let g:clang_use_library = 1
 let g:clang_exec = $VIM_CLANG_PATH
 let g:clang_library_path = $VIM_CLANG_LIB_PATH
 let g:clang_user_options = '-std=gnu++1y -stdlib=libc++'
+
+
+
+"### Wandbox ###
+let g:wandbox#open_quickfix_window=0
+
+let g:wandbox#default_compiler = {
+      \ 'cpp': 'clang-head'
+      \}
+
+let g:wandbox#default_options = {
+      \ 'cpp': 'gnu++1z,warning,boost-1.56'
+      \}
+
+function! s:ExecWandboxCmd(...)
+  if !empty(a:000)
+    let $_wandbox_arguments = join(a:000, ' ')
+  endif
+  
+  exec "Wandbox " . $_wandbox_arguments
+endfunction
+
+let $_wandbox_arguments =
+command! -nargs=* ExecWandbox :call s:ExecWandboxCmd(<f-args>)
+nnoremap ,w :<C-u>ExecWandbox<Space>
 
 
 
