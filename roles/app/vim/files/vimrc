@@ -8,6 +8,8 @@ colorscheme delek
 set number
 set ruler
 set nocompatible
+set clipboard+=autoselect
+set clipboard+=unnamed
 
 " tmp files
 set backup
