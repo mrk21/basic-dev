@@ -3,7 +3,6 @@ filetype detect
 syntax on
 
 colorscheme delek
-set guioptions+=a
 
 if has('gui_macvim')
   set transparency=3
