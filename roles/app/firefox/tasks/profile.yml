@@ -36,20 +36,17 @@
     state=directory
     path="{{profile_path.stdout}}/searchplugins"
   
-- name: copy the gtranslate search engine
-  include: _search_engine.yml
+- include: _search_engine.yml
   vars:
     name: gtranslate
     icon_url: https://translate.google.co.jp/favicon.ico
   
-- name: copy the oxford search engine
-  include: _search_engine.yml
+- include: _search_engine.yml
   vars:
     name: oxford
     icon_url: http://www.oxfordlearnersdictionaries.com/favicon.ico
   
-- name: copy the github search engine
-  include: _search_engine.yml
+- include: _search_engine.yml
   vars:
     name: github
     icon_url: https://github.com/favicon.ico 
