@@ -148,6 +148,14 @@ NeoBundleLazy 'eagletmt/neco-ghc', {
       \ 'autoload': {'filetypes': 'haskell'}
       \}
 
+" Markdown Syntax
+NeoBundle 'plasticboy/vim-markdown'
+
+" Bowser preview
+NeoBundle 'kannokanno/previm', {
+      \ 'depends': 'tyru/open-browser.vim'
+      \}
+
 
 
 "### NeoComplete.vim ###
@@ -275,9 +283,20 @@ function! s:ExecWandboxCmd(...)
   exec "Wandbox " . $_wandbox_arguments
 endfunction
 
-let $_wandbox_arguments =
+let $_wandbox_arguments = ""
 command! -nargs=* ExecWandbox :call s:ExecWandboxCmd(<f-args>)
 nnoremap ,w :<C-u>ExecWandbox<Space>
+
+
+
+"### vim-markdown ###
+let g:vim_markdown_folding_disabled=1
+
+
+
+"### vim-markdown ###
+nnoremap ,p :PrevimOpen<CR>
+
 
 
 
@@ -398,4 +417,12 @@ endfunction
 augroup s:augroup_makefile
   autocmd!
   autocmd FileType make call s:MakefileSettings()
+augroup END
+
+
+
+" Markdown
+augroup s:augroup_markdown
+  autocmd!
+  autocmd BufRead,BufNewFile *.md set filetype=markdown
 augroup END
