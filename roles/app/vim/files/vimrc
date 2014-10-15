@@ -294,9 +294,8 @@ let g:vim_markdown_folding_disabled=1
 
 
 
-"### vim-markdown ###
+"### preview ###
 nnoremap ,p :PrevimOpen<CR>
-
 
 
 
@@ -420,9 +419,31 @@ augroup s:augroup_makefile
 augroup END
 
 
+" Haskell
+function! s:HaskellSettings()
+  setlocal expandtab
+  setlocal tabstop=2
+  setlocal shiftwidth=2
+  setlocal softtabstop=4
+endfunction
+
+augroup s:augroup_haskell
+  autocmd!
+  autocmd FileType haskell call s:HaskellSettings()
+augroup END
+
 
 " Markdown
+function! s:MarkdownSettings()
+  setlocal expandtab
+  setlocal tabstop=4
+  setlocal shiftwidth=4
+  setlocal softtabstop=4
+  IndentLinesDisable
+endfunction
+
 augroup s:augroup_markdown
   autocmd!
   autocmd BufRead,BufNewFile *.md set filetype=markdown
+  autocmd FileType markdown call s:MarkdownSettings()
 augroup END
