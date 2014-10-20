@@ -1,11 +1,22 @@
 ---
 - name: add repository
-  command: >
-    creates=/usr/local/Library/Taps/supermomonga
-    brew tap supermomonga/homebrew-splhack
+  shell: |
+    creates=/usr/local/Library/Taps/{{ item.lower() }}
+    brew tap {{ item }}
+  with_items:
+    - KazuakiM/homebrew-splhack
+  
+- name: install ctags
+  register: ctags
+  homebrew: name=ctags state=present
+  
+- name: link ctags
+  when: ctags.changed
+  shell: brew link --overwrite ctags
   
 - name: install
-  homebrew: name={{item.name}} install_options={{item.options}} state=present
+  register: macvim
+  homebrew: name={{ item.name }} install_options={{ item.options }} state=present
   with_items:
     - name: cscope
       options:
@@ -23,12 +34,11 @@
       options: HEAD,with-lua,with-cscope
   
 - name: link apps
-  command: >
-    creates=/Applications/MacVim.app
-    brew linkapps
+  when: macvim.changed
+  command: brew linkapps
   
 - name: set rc
-  copy: src={{item.src}} dest={{item.dest}}
+  copy: src={{ item.src }} dest={{ item.dest }}
   with_items:
     - src: macvim-kaoriya_profile.sh
       dest: ~/.zprofile.d/macvim-kaoriya.sh
@@ -40,21 +50,21 @@
       dest: ~/.zprofile.d/vim.sh
   
 - name: make directories
-  file: state=directory path={{item}}
+  file: state=directory path={{ item }}
   with_items:
     - ~/.vim-tmp
   
 - name: get project root
-  command: pwd
   register: result
   changed_when: False
+  shell: pwd
   
 - name: link vimrc
-  file: >
+  file: |
     state=link
     force=yes
-    src={{result.stdout}}/roles/app/vim/files/{{item}}
-    dest=~/.{{item}}
+    src={{ result.stdout }}/roles/app/vim/files/{{ item }}
+    dest=~/.{{ item }}
   with_items:
     - vimrc
     - gvimrc

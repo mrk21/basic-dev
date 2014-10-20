@@ -66,8 +66,9 @@ nnoremap <C-h> gT
 "### NeoBundle ###
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
-  call neobundle#rc(expand('~/.vim/bundle/'))
 endif
+
+call neobundle#begin(expand('~/.vim/bundle/'))
 
 " Interactive command execution
 NeoBundle 'Shougo/vimproc.vim', {
@@ -155,6 +156,11 @@ NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'kannokanno/previm', {
       \ 'depends': 'tyru/open-browser.vim'
       \}
+
+call neobundle#end()
+
+filetype plugin indent on
+NeoBundleCheck
 
 
 
