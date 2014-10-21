@@ -1,37 +1,43 @@
 ---
-- name: install boost
-  homebrew: state=present name={{item}} install_options=c++11
-  with_items:
-    - boost
-
 - name: install gcc
-  homebrew: state=present name={{item}}
+  homebrew: state=present name={{ item }}
   with_items:
-    - gcc47
     - gcc48
     - gcc49
-
+  
 - name: install clang
-  homebrew: state=present name={{item}} install_options=with-clang,with-libcxx,rtti
+  register: clang
+  homebrew: state=present name={{ item }} install_options=with-clang,with-libcxx,rtti
   with_items:
     - llvm33
     - llvm34
     - llvm35
-
+  
+- name: use install_name_tool to the libclang.dylib of llvm35 (for clang_complete)
+  when: clang.changed
+  shell: |
+    _path=$(brew --prefix llvm35)
+    _target=${_path}/lib/llvm-3.5/lib/libclang.dylib
+    chmod u+w ${_target}
+    install_name_tool -change '@rpath/libLLVM-3.5.dylib' ${_path}/lib/llvm-3.5/lib/libLLVM-3.5.dylib ${_target}
+    chmod u-w ${_target}
+  
+- name: install boost
+  homebrew: state=present name={{ item }} install_options=c++11
+  with_items:
+    - boost
+  
 - name: install Qt
-  homebrew: name={{item}} state=present
+  register: qt
+  homebrew: name={{ item }} state=present
   with_items:
     - qt5
-
+  
 - name: link apps Designer.app, etc
-  command: brew linkapps
-
+  when: qt.changed
+  shell: brew linkapps
+  
 - name: copy zsh profile for Qt
-  copy: >
+  copy: |
     src=qt_profile.sh
     dest=~/.zprofile.d/qt.sh
-
-- name: install Qt Creator
-  homebrew_cask: name={{item}} state=present
-  with_items:
-    - qt-creator

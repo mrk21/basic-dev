@@ -35,7 +35,7 @@
   
 - name: link apps
   when: macvim.changed
-  command: brew linkapps
+  shell: brew linkapps
   
 - name: set rc
   copy: src={{ item.src }} dest={{ item.dest }}

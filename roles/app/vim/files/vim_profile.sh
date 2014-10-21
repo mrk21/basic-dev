@@ -3,3 +3,4 @@ export VIM_CPP_INCLUDE="${VIM_CPP_STDLIB},/usr/include,/usr/local/include"
 
 export VIM_CLANG_PATH='/usr/bin/clang++'
 export VIM_CLANG_LIB_PATH='/Library/Developer/CommandLineTools/usr/lib'
+export VIM_CLANG_OPTION='-std=gnu++1y -stdlib=libc++'
