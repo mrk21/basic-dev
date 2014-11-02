@@ -3,7 +3,7 @@
   copy: src=rbenv.sh dest=~/.zshrc.d/rbenv.sh
   
 - name: install packages
-  homebrew: state=present name={{item}}
+  homebrew: state=present name={{ item }}
   with_items:
     - rbenv
     - ruby-build
@@ -13,23 +13,25 @@
     - openssl
 
 - name: install ruby
-  shell: >
-    creates=~/.rbenv/versions/{{item}}/bin/ruby
-    rbenv install {{item}};
+  register: ruby
+  shell: |
+    creates=~/.rbenv/versions/{{ item }}/bin/ruby
+    rbenv install {{ item }}
   with_items:
-    - 1.9.3-p547
-    - 2.0.0-p481
-    - 2.1.2
+    - 2.0.0-p594
+    - 2.1.4
+    - 2.2.0-preview1
 
 - name: using latest version
-  shell: >
-    rbenv global 2.1.2;
-    rbenv rehash;
+  when: ruby.changed
+  shell: |
+    rbenv global 2.1.4
+    rbenv rehash
 
 - name: install bundler
-  gem: name={{item}} state=present
-  with_items:
-    - bundler
+  register: bundler
+  gem: name=bundler state=present
 
 - name: rehash
-  command: rbenv rehash
+  when: bundler.changed
+  shell: rbenv rehash
