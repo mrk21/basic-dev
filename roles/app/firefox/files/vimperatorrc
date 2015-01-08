@@ -79,7 +79,6 @@ javascript <<JS
 JS
 
 " Hatena Bookmark plugin
-style! -name=hatena-bookmark-toolbar chrome://* #hBookmarkToolbar {display: none;}
 
 javascript <<JS
   if (typeof hBookmark != 'undefined') {
