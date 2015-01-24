@@ -1,0 +1,12 @@
+---
+- name: install
+  homebrew_cask: name={{item}} state=present
+  with_items:
+    - virtualbox
+    - vagrant
+    - boot2docker
+  
+- name: install fig
+  homebrew: name={{item}} state=present
+  with_items:
+    - fig

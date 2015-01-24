@@ -29,3 +29,6 @@ dependencies:
   
   - role: dev/haskell
     tags: haskell
+  
+  - role: dev/docker
+    tags: docker
