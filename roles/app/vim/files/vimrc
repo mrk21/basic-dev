@@ -260,6 +260,10 @@ function! s:unite_gitignore_source()
     call add(sources, 'vendor')
   endif
   
+  if isdirectory('./node_modules')
+    call add(sources, 'node_modules')
+  endif
+  
   if isdirectory('./.git')
     call add(sources, '.git')
   endif
