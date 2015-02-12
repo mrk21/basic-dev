@@ -278,6 +278,14 @@ endfunction
 "### unite-outline ###
 nnoremap <silent> ,o :<C-u>Unite -vertical outline<CR>
 
+if !exists("g:unite_source_outline_info")
+  let g:unite_source_outline_info = {}
+endif
+
+let g:unite_source_outline_info.typescript = {
+      \ 'heading': '^\s*\(module\|class\|interface\|function\)\>',
+      \}
+
 
 
 "### unite-quickfix ###
@@ -447,6 +455,19 @@ augroup s:augroup_cpp
   autocmd!
   autocmd BufReadPost $_vim_cpp_stdlib_files call s:CppStdlibSettings()
   autocmd FileType cpp call s:CppSettings()
+augroup END
+
+
+" TypeScript
+function s:TypeScriptSettings()
+  setlocal tabstop=4
+  setlocal shiftwidth=4
+  setlocal softtabstop=4
+endfunction
+
+augroup s:augroup_typescript
+  autocmd!
+  autocmd FileType typescript call s:TypeScriptSettings()
 augroup END
 
 
