@@ -116,6 +116,9 @@ NeoBundle 'kchmck/vim-coffee-script'
 " TypeScript Syntax
 NeoBundle 'leafgarland/typescript-vim'
 
+" Stylus Syntax
+NeoBundle 'wavded/vim-stylus'
+
 " C++ Syntax
 NeoBundleLazy 'vim-jp/cpp-vim'
 
@@ -284,6 +287,10 @@ endif
 
 let g:unite_source_outline_info.typescript = {
       \ 'heading': '^\s*\(module\|class\|interface\|function\)\>',
+      \}
+
+let g:unite_source_outline_info.stylus = {
+      \ 'heading': '^\s*[#.]\?[a-zA-Z0-9:()[\]&_-][#.a-zA-Z0-9 :()[\]&_-]\+\s*{',
       \}
 
 
