@@ -20,12 +20,12 @@
   with_items:
     - 2.0.0-p594
     - 2.1.4
-    - 2.2.0-preview1
+    - 2.2.0
 
 - name: using latest version
   when: ruby.changed
   shell: |
-    rbenv global 2.1.4
+    rbenv global 2.2.0
     rbenv rehash
 
 - name: install bundler

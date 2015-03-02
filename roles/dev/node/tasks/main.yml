@@ -17,3 +17,4 @@
     nodebrew use {{ item }}
   with_items:
     - v0.10.33
+    - v0.12.0

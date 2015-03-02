@@ -485,6 +485,17 @@ augroup s:augroup_coffeescript
 augroup END
 
 
+" Ruby
+function s:RubySettings()
+endfunction
+
+augroup s:augroup_typescript
+  autocmd!
+  autocmd BufReadPost Guardfile setlocal filetype=ruby
+  autocmd FileType ruby call s:RubySettings()
+augroup END
+
+
 " Makefile
 function! s:MakefileSettings()
   setlocal noexpandtab
