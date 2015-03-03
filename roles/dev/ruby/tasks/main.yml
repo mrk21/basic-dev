@@ -9,14 +9,6 @@
     - readline
     - openssl
 
-- name: get rbenv config
-  changed_when: false
-  register: rbenv_config
-  shell: rbenv init --no-rehash - zsh
-
-- name: rbenv config
-  template: src=rbenv.sh dest=~/.zshrc.d/rbenv.sh
-
 - name: install ruby
   register: ruby
   shell: |
@@ -32,6 +24,14 @@
   shell: |
     rbenv global 2.2.0
     rbenv rehash
+
+- name: get latest ruby dir
+  changed_when: false
+  register: ruby_dir
+  shell: dirname `rbenv which ruby`
+
+- name: ruby config
+  template: src=ruby.sh dest=~/.zprofile.d/ruby.sh
 
 - name: install bundler
   register: bundler
