@@ -12,3 +12,6 @@ dependencies:
   
   - role: base/tmux
     tags: tmux
+  
+  - role: base/direnv
+    tags: direnv

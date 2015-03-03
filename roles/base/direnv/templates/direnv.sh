@@ -1,0 +1,1 @@
+{{ direnv_config.stdout }}
