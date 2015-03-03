@@ -1,7 +1,4 @@
 ---
-- name: rbenv config
-  copy: src=rbenv.sh dest=~/.zshrc.d/rbenv.sh
-  
 - name: install packages
   homebrew: state=present name={{ item }}
   with_items:
@@ -11,6 +8,14 @@
     - rbenv-gem-rehash
     - readline
     - openssl
+
+- name: get rbenv config
+  changed_when: false
+  register: rbenv_config
+  shell: rbenv init --no-rehash - zsh
+
+- name: rbenv config
+  template: src=rbenv.sh dest=~/.zshrc.d/rbenv.sh
 
 - name: install ruby
   register: ruby

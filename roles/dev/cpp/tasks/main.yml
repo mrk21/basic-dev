@@ -37,7 +37,12 @@
   when: qt.changed
   shell: brew linkapps
   
+- name: get Qt directory
+  changed_when: false
+  register: qt_dir
+  shell: brew --prefix qt5
+  
 - name: copy zsh profile for Qt
-  copy: |
+  template: |
     src=qt_profile.sh
     dest=~/.zprofile.d/qt.sh
