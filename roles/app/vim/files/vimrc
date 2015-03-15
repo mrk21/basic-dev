@@ -286,7 +286,7 @@ if !exists("g:unite_source_outline_info")
 endif
 
 let g:unite_source_outline_info.typescript = {
-      \ 'heading': '^\s*\(module\|class\|interface\|function\)\>',
+      \ 'heading': '^\s*\(module\|class\|interface\|function\|describe\|context\|it\)\>',
       \}
 
 let g:unite_source_outline_info.stylus = {
