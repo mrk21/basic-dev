@@ -290,7 +290,7 @@ let g:unite_source_outline_info.typescript = {
       \}
 
 let g:unite_source_outline_info.stylus = {
-      \ 'heading': '^\s*[#.]\?[a-zA-Z0-9:()[\]&_-][#.a-zA-Z0-9 :()[\]&_-]\+\s*{',
+      \ 'heading': '^\s*[#.//&]\?[//{}a-zA-Z0-9:()[\]&=_-][//{}#.a-zA-Z0-9 :()[\]&=_-]\+\s*{',
       \}
 
 
