@@ -32,3 +32,6 @@ dependencies:
   
   - role: dev/docker
     tags: docker
+  
+  - role: dev/redis
+    tags: redis
