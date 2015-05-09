@@ -1,3 +1,19 @@
 ---
 - name: install
   homebrew: name=redis state=present
+  
+- name: get lunch config file path
+  register: result
+  changed_when: False
+  shell: brew list redis | grep plist
+  
+- name: copy config file
+  shell: |
+    changes={{ redis_config_file_dir }}/{{ redis_config_file_name }}
+    cp -f {{ result.stdout }} {{ redis_config_file_dir }}
+  
+- name: launch
+  changed_when: False
+  shell: |
+    launchctl load -w {{ redis_config_file_dir }}/{{ redis_config_file_name }}
+    launchctl start {{ redis_config_name }}
