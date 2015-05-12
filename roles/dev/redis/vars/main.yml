@@ -1,4 +1,3 @@
 ---
-redis_config_name: homebrew.mxcl.redis
-redis_config_file_dir: ~/Library/LaunchAgents
-redis_config_file_name: "{{ redis_config_name }}.plist"
+redis_launch_config: homebrew.mxcl.redis
+redis_launch_config_path: ~/Library/LaunchAgents/{{ redis_launch_config }}.plist

@@ -1,2 +1,3 @@
 ---
-mysql_plist: ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+mysql_launch_config: homebrew.mxcl.mysql
+mysql_launch_config_path: ~/Library/LaunchAgents/{{ mysql_launch_config }}.plist

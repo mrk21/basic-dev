@@ -1,15 +1,13 @@
 ---
 - name: install
-  homebrew: name={{item}} state=present
-  with_items:
-    - mysql
+  homebrew: name=mysql state=present
   
-- name: copy the configure file
+- name: copy launch config file
   copy: |
-    src=homebrew.mxcl.mysql.plist
-    dest={{ mysql_plist }}
+    src={{ mysql_launch_config }}.plist
+    dest={{ mysql_launch_config_path }}
   
-- name: apply the configure file
+- name: apply launch config file
   shell: |
-    launchctl unload -w {{ mysql_plist }}
-    launchctl load -w {{ mysql_plist }}
+    launchctl unload -w {{ mysql_launch_config_path }}
+    launchctl load -w {{ mysql_launch_config_path }}
