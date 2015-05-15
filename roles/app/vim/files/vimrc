@@ -127,6 +127,9 @@ NeoBundleLazy 'Rip-Rip/clang_complete', {
       \ 'autoload': {'filetypes': 'cpp'}
       \}
 
+" nginx syntax
+NeoBundle 'evanmiller/nginx-vim-syntax'
+
 " Wandbox
 NeoBundle 'rhysd/wandbox-vim'
 
