@@ -16,6 +16,7 @@
     - cmake
     - ffmpeg
     - imagemagick
+    - graphviz
     - md5sha1sum
     - peco
     - bash
