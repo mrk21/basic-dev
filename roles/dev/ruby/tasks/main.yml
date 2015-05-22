@@ -25,11 +25,6 @@
     rbenv global 2.2.2
     rbenv rehash
 
-- name: get latest ruby dir
-  changed_when: false
-  register: ruby_dir
-  shell: dirname `rbenv which ruby`
-
 - name: ruby config
   template: src=ruby.sh dest=~/.zprofile.d/ruby.sh
 
