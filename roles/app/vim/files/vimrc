@@ -542,3 +542,14 @@ augroup s:augroup_markdown
   autocmd BufRead,BufNewFile *.md set filetype=markdown
   autocmd FileType markdown call s:MarkdownSettings()
 augroup END
+
+
+" ShellScript
+function! s:ShellScriptSettings()
+endfunction
+
+augroup s:augroup_shellscript
+  autocmd!
+  autocmd BufRead,BufNewFile .envrc* set filetype=sh
+  autocmd FileType sh call s:ShellScriptSettings()
+augroup END
