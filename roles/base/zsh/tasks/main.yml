@@ -1,4 +1,9 @@
 ---
+- name: install
+  homebrew: name={{item}} state=latest update_homebrew=yes
+  with_items:
+    - zsh
+  
 - name: get user name
   command: whoami
   register: result

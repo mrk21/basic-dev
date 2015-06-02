@@ -8,7 +8,7 @@
   
 - name: install ctags
   register: ctags
-  homebrew: name=ctags state=present
+  homebrew: name=ctags state=latest update_homebrew=yes
   
 - name: link ctags
   when: ctags.changed
@@ -16,7 +16,7 @@
   
 - name: install
   register: macvim
-  homebrew: name={{ item.name }} install_options={{ item.options }} state=present
+  homebrew: name={{ item.name }} install_options={{ item.options }} state=latest update_homebrew=yes
   with_items:
     - name: cscope
       options:

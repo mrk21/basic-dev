@@ -8,7 +8,7 @@
   homebrew_tap: tap=caskroom/cask state=present
 
 - name: install homebrew-cask
-  homebrew: name=brew-cask state=present
+  homebrew: name=brew-cask state=latest update_homebrew=yes
   
 - name: copy homebrew-cask config
   copy: src={{item.src}} dest={{item.dest}}

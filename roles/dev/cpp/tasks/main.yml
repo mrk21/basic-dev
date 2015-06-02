@@ -1,13 +1,13 @@
 ---
 - name: install gcc
-  homebrew: state=present name={{ item }}
+  homebrew: state=latest update_homebrew=yes name={{ item }}
   with_items:
     - gcc48
     - gcc49
   
 - name: install clang
   register: clang
-  homebrew: state=present name={{ item }} install_options=with-clang,with-libcxx,rtti
+  homebrew: state=latest update_homebrew=yes name={{ item }} install_options=with-clang,with-libcxx,rtti
   with_items:
     - llvm33
     - llvm34
@@ -23,13 +23,13 @@
     chmod u-w ${_target}
   
 - name: install boost
-  homebrew: state=present name={{ item }} install_options=c++11
+  homebrew: state=latest update_homebrew=yes name={{ item }} install_options=c++11
   with_items:
     - boost
   
 - name: install Qt
   register: qt
-  homebrew: name={{ item }} state=present
+  homebrew: name={{ item }} state=latest update_homebrew=yes
   with_items:
     - qt5
   

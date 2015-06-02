@@ -1,6 +1,6 @@
 ---
 - name: install
-  homebrew: name=direnv state=present
+  homebrew: name=direnv state=latest update_homebrew=yes
 
 - name: get direnv config
   changed_when: false

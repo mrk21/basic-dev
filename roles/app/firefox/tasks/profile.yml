@@ -1,6 +1,6 @@
 ---
 - name: install firebrew
-  gem: name={{item}} state=present
+  gem: name={{item}} state=latest
   with_items:
     - firebrew
   

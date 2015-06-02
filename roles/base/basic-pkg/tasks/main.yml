@@ -6,7 +6,7 @@
     - peco/peco
   
 - name: install
-  homebrew: state=present name={{item}}
+  homebrew: name={{item}} state=latest update_homebrew=yes
   with_items:
     - coreutils
     - wget

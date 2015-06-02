@@ -1,6 +1,6 @@
 ---
 - name: install packages
-  homebrew: state=present name={{ item }}
+  homebrew: state=latest update_homebrew=yes name={{ item }}
   with_items:
     - rbenv
     - ruby-build
@@ -30,7 +30,7 @@
 
 - name: install bundler
   register: bundler
-  gem: name=bundler state=present
+  gem: name=bundler state=latest
 
 - name: rehash
   when: bundler.changed

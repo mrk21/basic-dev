@@ -1,6 +1,6 @@
 ---
 - name: install
-  homebrew: state=present name={{ item }}
+  homebrew: state=latest update_homebrew=yes name={{ item }}
   with_items:
     - ghc
     - cabal-install
