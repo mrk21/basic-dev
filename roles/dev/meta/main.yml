@@ -38,3 +38,6 @@ dependencies:
   
   - role: dev/lua
     tags: lua
+  
+  - role: dev/perl
+    tags: perl
