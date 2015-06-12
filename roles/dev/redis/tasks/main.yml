@@ -2,6 +2,11 @@
 - name: install
   homebrew: name=redis state=latest update_homebrew=yes
   
+- name: copy config file
+  copy: |
+    src=redis.conf
+    dest=/usr/local/etc/redis.conf
+  
 - name: copy launch config file
   copy: |
     src={{ redis_launch_config }}.plist
