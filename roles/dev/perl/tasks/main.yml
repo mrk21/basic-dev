@@ -1,3 +1,10 @@
 ---
 - name: install cpanm
   homebrew: name=cpanminus state=latest update_homebrew=yes
+  
+- name: install basic modules
+  sudo: yes
+  cpanm: name={{ item }}
+  with_items:
+    - carton
+    - App::Prove
