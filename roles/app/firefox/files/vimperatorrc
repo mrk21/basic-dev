@@ -48,6 +48,9 @@ nnoremap k 3k
 nnoremap h 3h
 nnoremap l 3l
 
+" Delete buffers
+nnoremap ,d :bdelete<Space>
+
 " Disable IME on a command mode.
 style! -name=commandline-ime chrome://* #liberator-commandline-command input {ime-mode: inactive;}
 
@@ -89,41 +92,4 @@ javascript <<JS
     };
     liberator.loadScript('chrome://hatenabookmark/content/vimperator/plugin/hatenabookmark.js', {__proto__: this});
   }
-JS
-
-" @see マッチするドメインのバッファを全部閉じる vimperator のコード断片 (vimpChrome) - #生存戦略 、それは - subtech, http://subtech.g.hatena.ne.jp/secondlife/20090318/1237379816
-" @see addUserCommand_for2.0pre - Vimperator, http://seesaawiki.jp/w/shin_yan/d/addUserCommand_for2.0pre
-javascript <<JS
-  commands.addUserCommand(['bdd[omain]'],
-    'buffer delete by match domain',
-    function (args) {
-      var domain = args.string;
-      let count = 0;
-      Application.activeWindow.tabs.forEach(function(t) {
-        // t #=> fuelIBrowserTab
-        if (t.uri.scheme.indexOf('http') != -1 &&
-          t.uri.host.indexOf(domain) != -1) {
-          t.close();
-          count++;
-        }
-      });
-      if (count) liberator.echo('close ' + count + ' buffer(s).');
-    }, 
-    {
-      completer: function (context) {
-        context.title = ['domain','title'];
-        let domains = [];
-        Application.activeWindow.tabs.forEach(function(t) {
-          if (t.uri.scheme.indexOf('http') != -1) {
-            if (!domains.some(function(domain) t.uri.host == domain))
-              domains.push([t.uri.host, t.document.title]);
-          }
-        });
-        context.completions = domains;
-      },
-      argCount: '1',
-      bang: false,
-    },
-    true
-  );
 JS
