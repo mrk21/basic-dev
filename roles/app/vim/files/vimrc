@@ -496,6 +496,7 @@ augroup s:augroup_ruby
   autocmd!
   autocmd BufReadPost Guardfile setlocal filetype=ruby
   autocmd BufReadPost Capfile setlocal filetype=ruby
+  autocmd BufReadPost *.cap setlocal filetype=ruby
   autocmd BufReadPost *.jbuilder setlocal filetype=ruby
   autocmd FileType ruby call s:RubySettings()
 augroup END
