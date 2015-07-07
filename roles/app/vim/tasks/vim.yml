@@ -1,35 +1,11 @@
 ---
 - name: add repository
-  shell: |
-    creates=/usr/local/Library/Taps/{{ item.lower() }}
-    brew tap {{ item }}
-  with_items:
-    - KazuakiM/homebrew-splhack
-  
-- name: install ctags
-  register: ctags
-  homebrew: name=ctags state=latest update_homebrew=yes
-  
-- name: link ctags
-  when: ctags.changed
-  shell: brew link --overwrite ctags
+  homebrew_tap: tap=kazuakim/macvim state=present
   
 - name: install
   register: macvim
   homebrew: name={{ item.name }} install_options={{ item.options }} state=latest update_homebrew=yes
   with_items:
-    - name: cscope
-      options:
-    
-    - name: lua
-      options:
-    
-    - name: cmigemo-mk
-      options: HEAD
-    
-    - name: ctags-objc-ja
-      options: HEAD
-    
     - name: macvim-kaoriya
       options: HEAD,with-lua,with-cscope
   
