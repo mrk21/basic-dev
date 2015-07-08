@@ -1,13 +1,16 @@
 ---
 - name: install firebrew
-  gem: name={{item}} state=latest
-  with_items:
-    - firebrew
+  register: firebrew
+  gem: name=firebrew state=latest user_install=no
+  
+- name: rbenv rehash
+  when: firebrew.changed
+  shell: rbenv rehash
   
 - name: get profile dir
   changed_when: False
   register: profile_path
-  command: firebrew profile --attribute=path
+  shell: firebrew profile --attribute=path
   
 - name: copy user.js
   copy: src=user.js dest='{{profile_path.stdout}}/user.js'
@@ -16,7 +19,7 @@
   register: result
   changed_when: result.rc == 0
   failed_when: False
-  command: |
+  shell: |
     ruby -e "
       require 'json';
       path = '{{profile_path.stdout}}/search.json';
