@@ -1,0 +1,10 @@
+---
+- name: install dependencies
+  homebrew: name=freetype state=latest
+  
+- name: install
+  sudo: yes
+  easy_install: name={{ item }}
+  with_items:
+    - blockdiag
+    - seqdiag

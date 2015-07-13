@@ -41,3 +41,6 @@ dependencies:
   
   - role: dev/perl
     tags: perl
+  
+  - role: dev/blockdiag
+    tags: blockdiag
