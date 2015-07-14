@@ -1,0 +1,10 @@
+---
+- name: add repositories
+  homebrew_tap: name={{ item }} state=present
+  with_items:
+    - homebrew/dupes
+    - homebrew/versions
+    - homebrew/php
+  
+- name: install
+  homebrew: name=php56 state=latest
