@@ -19,8 +19,17 @@
     - ~/.zprofile.d
     - ~/.zshrc.d
   
-- name: create files
-  copy: src={{item}}.sh dest=~/.{{item}}
+- name: get project root
+  register: result
+  changed_when: False
+  shell: pwd
+  
+- name: link files
+  file: |
+    state=link
+    force=yes
+    src={{ result.stdout }}/roles/base/zsh/files/{{ item }}.sh
+    dest=~/.{{ item }}
   with_items:
     - zprofile
     - zshrc
