@@ -17,12 +17,13 @@ RPROMPT="%B%F{yellow}[%n@%m:%~ ]%b%f"
 autoload -U compinit
 compinit
 
-export LSCOLORS=exfxcxdxbxegedabagacad
-export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+eval $(gdircolors)
+
+if [ -n "$LS_COLORS" ]; then
+  zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+fi
 
 alias ls="gls --color"
-
-zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
 
 # keymap
 bindkey -v
@@ -41,6 +42,7 @@ alias l='ls -F'
 alias l.='ls -d .*'
 alias la='ls -a'
 alias ll='ls -l'
+alias ll.='ls -l -d .*'
 alias lla='ls -la'
 alias mv='mv -i'
 alias rm='rm -i'
