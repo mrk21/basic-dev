@@ -555,3 +555,45 @@ augroup s:augroup_shellscript
   autocmd BufRead,BufNewFile .envrc* set filetype=sh
   autocmd FileType sh call s:ShellScriptSettings()
 augroup END
+
+
+" Java
+function! s:JavaSettings()
+  setlocal expandtab
+  setlocal tabstop=4
+  setlocal shiftwidth=4
+  setlocal softtabstop=4
+endfunction
+
+augroup s:augroup_java
+  autocmd!
+  autocmd FileType java call s:JavaSettings()
+augroup END
+
+
+" Perl
+function! s:PerlSettings()
+  setlocal expandtab
+  setlocal tabstop=4
+  setlocal shiftwidth=4
+  setlocal softtabstop=4
+endfunction
+
+augroup s:augroup_perl
+  autocmd!
+  autocmd FileType perl call s:PerlSettings()
+augroup END
+
+
+" PHP
+function! s:PHPSettings()
+  setlocal expandtab
+  setlocal tabstop=4
+  setlocal shiftwidth=4
+  setlocal softtabstop=4
+endfunction
+
+augroup s:augroup_php
+  autocmd!
+  autocmd FileType php call s:PHPSettings()
+augroup END
