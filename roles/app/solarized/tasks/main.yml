@@ -1,0 +1,5 @@
+---
+- name: fetch
+  git: |
+    repo=https://github.com/altercation/solarized.git
+    dest=~/solarized
