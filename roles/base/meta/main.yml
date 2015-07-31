@@ -1,6 +1,9 @@
 ---
 dependencies:
   # sub roles
+  - role: base/solarized
+    tags: solarized
+    
   - role: base/zsh
     tags: zsh
   
