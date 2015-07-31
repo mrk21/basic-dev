@@ -3,8 +3,3 @@
   homebrew_cask: name={{item}} state=present
   with_items:
     - iterm2
-  
-- name: copy preference file
-  copy: src={{item}} dest=~/{{item}}
-  with_items:
-    - com.googlecode.iterm2.plist
