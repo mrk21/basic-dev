@@ -3,6 +3,9 @@ dependencies:
   - role: base
   
   # sub roles
+  - role: app/solarized
+    tags: solarized
+    
   - role: app/basic-pkg
     tags: app-basic-pkg
   
