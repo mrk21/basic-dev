@@ -3,8 +3,6 @@ scriptencoding utf-8
 filetype detect
 syntax on
 
-colorscheme delek
-
 set number
 set ruler
 set nocompatible
@@ -79,6 +77,9 @@ NeoBundle 'Shougo/vimproc.vim', {
       \   'unix': 'make -f make_unix.mak',
       \ },
       \}
+
+" Colors
+NeoBundle 'altercation/vim-colors-solarized'
 
 " Input completion
 NeoBundle 'Shougo/neocomplete.vim'
@@ -167,6 +168,12 @@ call neobundle#end()
 
 filetype plugin indent on
 NeoBundleCheck
+
+
+
+"### vim-colors-solarized ###
+set background=dark
+colorscheme solarized
 
 
 

@@ -2,8 +2,6 @@ scriptencoding utf-8
 filetype detect
 syntax on
 
-colorscheme delek
-
 if has('gui_macvim')
   set transparency=3
   set guifont=Menlo:h12
