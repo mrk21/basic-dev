@@ -1,5 +1,10 @@
 ---
-- name: fetch
+- name: fetch solarized
   git: |
     repo=https://github.com/altercation/solarized.git
     dest=~/solarized
+  
+- name: fetch dircolors-solarized
+  git: |
+    repo=https://github.com/seebi/dircolors-solarized.git
+    dest=~/dircolors-solarized
