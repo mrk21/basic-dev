@@ -505,8 +505,10 @@
 	<true/>
 	<key>MaxVertically</key>
 	<false/>
+	<key>NSFontPanelAttributes</key>
+	<string>1, 0</string>
 	<key>NSNavLastRootDirectory</key>
-	<string>~</string>
+	<string>~/solarized/solarized/iterm2-colors-solarized</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -532,12 +534,16 @@
 	<array/>
 	<key>NSTableView Sort Ordering KeyBingingTable</key>
 	<array/>
+	<key>NSWindow Frame NSFontPanel</key>
+	<string>646 264 562 191 0 0 1366 745 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>351 122 924 485 0 0 1366 745 </string>
+	<string>358 145 924 485 0 0 1366 745 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>683 4 683 741 0 0 1366 745 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>169 44 570 451 0 0 1366 745 </string>
+	<string>0 4 1366 741 0 0 1366 745 </string>
+	<key>NSWindow Frame iTerm Window 2</key>
+	<string>5 4 1361 740 0 0 1366 745 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1578,6 +1584,20 @@
 					<key>Text</key>
 					<string>0x7f</string>
 				</dict>
+				<key>0x68-0x40000</key>
+				<dict>
+					<key>Action</key>
+					<integer>2</integer>
+					<key>Text</key>
+					<string></string>
+				</dict>
+				<key>0x6c-0x40000</key>
+				<dict>
+					<key>Action</key>
+					<integer>0</integer>
+					<key>Text</key>
+					<string></string>
+				</dict>
 				<key>0xf700-0x220000</key>
 				<dict>
 					<key>Action</key>
@@ -1968,7 +1988,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Transparency</key>
-			<real>0.0</real>
+			<real>0.033242419362068176</real>
 			<key>Triggers</key>
 			<array/>
 			<key>Unlimited Scrollback</key>
