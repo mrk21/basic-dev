@@ -528,7 +528,7 @@
 		BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU1N0cmluZwGEhAhOU09iamVjdACF
 		hAErATGG
 		</data>
-		<string>302</string>
+		<string>319</string>
 	</array>
 	<key>NSTableView Hidden Columns KeyBingingTable</key>
 	<array/>
@@ -539,9 +539,9 @@
 	<key>NSWindow Frame Preferences</key>
 	<string>358 145 924 485 0 0 1366 745 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>683 4 683 741 0 0 1366 745 </string>
+	<string>212 177 570 451 0 0 1366 745 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 4 1366 741 0 0 1366 745 </string>
+	<string>0 293 570 451 0 0 1366 745 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>5 4 1361 740 0 0 1366 745 </string>
 	<key>New Bookmarks</key>
@@ -549,6 +549,18 @@
 		<dict>
 			<key>ASCII Anti Aliased</key>
 			<true/>
+			<key>AWDS Pane Directory</key>
+			<string></string>
+			<key>AWDS Pane Option</key>
+			<string>No</string>
+			<key>AWDS Tab Directory</key>
+			<string></string>
+			<key>AWDS Tab Option</key>
+			<string>No</string>
+			<key>AWDS Window Directory</key>
+			<string></string>
+			<key>AWDS Window Option</key>
+			<string>No</string>
 			<key>Allow Title Reporting</key>
 			<false/>
 			<key>Ambiguous Double Width</key>
@@ -1274,6 +1286,18 @@
 		<dict>
 			<key>ASCII Anti Aliased</key>
 			<true/>
+			<key>AWDS Pane Directory</key>
+			<string></string>
+			<key>AWDS Pane Option</key>
+			<string>Recycle</string>
+			<key>AWDS Tab Directory</key>
+			<string></string>
+			<key>AWDS Tab Option</key>
+			<string>Recycle</string>
+			<key>AWDS Window Directory</key>
+			<string></string>
+			<key>AWDS Window Option</key>
+			<string>No</string>
 			<key>Allow Title Reporting</key>
 			<false/>
 			<key>Ambiguous Double Width</key>
@@ -1489,7 +1513,7 @@
 			<key>Custom Command</key>
 			<string>No</string>
 			<key>Custom Directory</key>
-			<string>No</string>
+			<string>Advanced</string>
 			<key>Default Bookmark</key>
 			<string>No</string>
 			<key>Disable Printing</key>
@@ -2014,7 +2038,7 @@
 	<key>NoSyncTimeOfLastPromo</key>
 	<real>460040154.95706099</real>
 	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>460040154.95769501</real>
+	<real>460216539.93488598</real>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -2077,7 +2101,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-07-31T12:49:28Z</date>
+	<date>2015-08-02T13:49:12Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
