@@ -1,6 +1,6 @@
 ---
 - name: install
-  homebrew: name=mysql state=latest update_homebrew=yes
+  homebrew: name=mysql state=latest
   
 - name: copy launch config file
   copy: |

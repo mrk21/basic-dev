@@ -1,6 +1,6 @@
 ---
 - name: install
-  homebrew: name={{item}} state=latest update_homebrew=yes
+  homebrew: name={{ item }} state=latest
   with_items:
     - zsh
   
@@ -11,10 +11,10 @@
   
 - name: change default shell
   sudo: yes
-  command: chsh -s /usr/local/bin/zsh {{result.stdout}}
+  command: chsh -s /usr/local/bin/zsh {{ result.stdout }}
   
 - name: make directory
-  file: state=directory path={{item}}
+  file: state=directory path={{ item }}
   with_items:
     - ~/.zprofile.d
     - ~/.zshrc.d

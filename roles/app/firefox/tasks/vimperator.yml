@@ -8,8 +8,8 @@
   file: >
     state=link
     force=yes
-    src={{result.stdout}}/roles/app/firefox/files/{{item}}
-    dest=~/.{{item}}
+    src={{ result.stdout }}/roles/app/firefox/files/{{ item }}
+    dest=~/.{{ item }}
   with_items:
     - vimperatorrc
   
@@ -26,8 +26,8 @@
 - name: set plugins
   file: >
     state=link
-    src=~/.vimperator/vimperator-plugins/{{item}}
-    dest=~/.vimperator/plugin/{{item}}
+    src=~/.vimperator/vimperator-plugins/{{ item }}
+    dest=~/.vimperator/plugin/{{ item }}
   with_items:
     - _libly.js
     - plugin_loader.js

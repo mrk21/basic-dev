@@ -11,7 +11,7 @@
     dest=~/.vim/bundle/neobundle.vim
 
 - name: install neobundle-cmd
-  gem: name={{item}} state=latest
+  gem: name={{ item }} state=latest
   with_items:
     - neobundle
 

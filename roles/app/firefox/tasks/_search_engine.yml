@@ -1,10 +1,10 @@
 ---
-- name: "{{name}} | get a data-uri of an icon"
+- name: "{{ name }} | get a data-uri of an icon"
   changed_when: False
   register: icon_data
-  script: get_data_uri.py {{icon_url}}
+  script: get_data_uri.py {{ icon_url }}
   
-- name: "{{name}} | copy search plugins"
+- name: "{{ name }} | copy search plugins"
   template: >
-    src=searchplugins/{{name}}.xml
-    dest="{{profile_path.stdout}}/searchplugins/{{name}}.xml"
+    src=searchplugins/{{ name }}.xml
+    dest="{{ profile_path.stdout }}/searchplugins/{{ name }}.xml"

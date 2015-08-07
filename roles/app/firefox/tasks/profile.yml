@@ -13,7 +13,7 @@
   shell: firebrew profile --attribute=path
   
 - name: copy user.js
-  copy: src=user.js dest='{{profile_path.stdout}}/user.js'
+  copy: src=user.js dest='{{ profile_path.stdout }}/user.js'
   
 - name: initialize search engines
   register: result
@@ -22,7 +22,7 @@
   shell: |
     ruby -e "
       require 'json';
-      path = '{{profile_path.stdout}}/search.json';
+      path = '{{ profile_path.stdout }}/search.json';
       data = JSON.parse(File.read(path));
       data['directories'].each{|(k,v)|
         v['engines'].each{|vv|
@@ -37,7 +37,7 @@
 - name: create search plugin directory
   file: >
     state=directory
-    path="{{profile_path.stdout}}/searchplugins"
+    path="{{ profile_path.stdout }}/searchplugins"
   
 - include: _search_engine.yml
   vars:
@@ -55,7 +55,7 @@
     icon_url: https://github.com/favicon.ico 
   
 - name: install add-ons
-  firebrew: name='{{item}}' state=present
+  firebrew: name='{{ item }}' state=present
   with_items:
     - Japanese Language Pack
     - Vimperator

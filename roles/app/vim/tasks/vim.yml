@@ -4,7 +4,7 @@
   
 - name: install
   register: macvim
-  homebrew: name={{ item.name }} install_options={{ item.options }} state=latest update_homebrew=yes
+  homebrew: name={{ item.name }} install_options={{ item.options }} state=latest
   with_items:
     - name: macvim-kaoriya
       options: HEAD,with-lua,with-cscope

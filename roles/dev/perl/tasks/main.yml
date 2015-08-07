@@ -1,6 +1,6 @@
 ---
 - name: install cpanm
-  homebrew: name=cpanminus state=latest update_homebrew=yes
+  homebrew: name=cpanminus state=latest
   
 - name: install basic modules
   sudo: yes

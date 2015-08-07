@@ -1,6 +1,6 @@
 ---
 - name: install
-  homebrew: name=redis state=latest update_homebrew=yes
+  homebrew: name=redis state=latest
   
 - name: copy config file
   copy: |

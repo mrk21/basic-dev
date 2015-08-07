@@ -1,11 +1,11 @@
 ---
 - name: install
-  homebrew: name={{item}} state=latest update_homebrew=yes
+  homebrew: name={{ item }} state=latest
   with_items:
     - postgresql
   
 - name: copy file
-  copy: src={{item.src}} dest={{item.dest}}
+  copy: src={{ item.src }} dest={{ item.dest }}
   with_items:
     - src: profile.sh
       dest: ~/.zprofile.d/postgresql.sh
@@ -17,9 +17,9 @@
     cd $(dirname $(which psql))/$(dirname $(readlink $(which psql)))/../; pwd
   
 - name: link auto run file
-  file: src={{item.src}} dest={{item.dest}} state=link
+  file: src={{ item.src }} dest={{ item.dest }} state=link
   with_items:
-    - src: "{{result.stdout}}/homebrew.mxcl.postgresql.plist"
+    - src: "{{ result.stdout }}/homebrew.mxcl.postgresql.plist"
       dest: ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
   
 - name: register auto run

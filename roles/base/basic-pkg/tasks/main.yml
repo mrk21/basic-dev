@@ -1,12 +1,11 @@
 ---
 - name: add homebrew repositories
-  homebrew_tap: tap={{item}} state=present
+  homebrew_tap: tap={{ item }} state=present
   with_items:
     - homebrew/versions
-    - peco/peco
   
 - name: install
-  homebrew: name={{item}} state=latest update_homebrew=yes
+  homebrew: name={{ item }} state=latest
   with_items:
     - coreutils
     - wget
@@ -18,19 +17,8 @@
     - imagemagick
     - graphviz
     - md5sha1sum
-    - peco
-    - bash
-    - openssl
   
 - name: install sshpass
   shell: |
     creates=/usr/local/Cellar/sshpass
     brew install https://raw.github.com/eugeneoden/homebrew/eca9de1/Library/Formula/sshpass.rb
-  
-- name: force link [bash, openssl]
-  register: result
-  changed_when: result.stderr.find('Already linked') == -1
-  shell: brew link {{item}} --force
-  with_items:
-    - bash
-    - openssl
