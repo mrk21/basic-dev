@@ -7,7 +7,7 @@
 - name: copy file
   copy: src={{ item.src }} dest={{ item.dest }}
   with_items:
-    - src: profile.sh
+    - src: postgresql_profile.sh
       dest: ~/.zprofile.d/postgresql.sh
   
 - name: get install path

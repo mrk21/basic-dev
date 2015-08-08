@@ -2,10 +2,5 @@
 - name: install
   homebrew: name=direnv state=latest
 
-- name: get direnv config
-  changed_when: false
-  register: direnv_config
-  shell: direnv hook zsh
-
 - name: set direnv config
-  template: src=direnv.sh dest=~/.zshrc.d/direnv.sh
+  copy: src=direnv_rc.sh dest=~/.zshrc.d/direnv.sh

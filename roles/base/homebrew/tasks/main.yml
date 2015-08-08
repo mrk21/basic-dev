@@ -16,5 +16,5 @@
 - name: copy homebrew-cask config
   copy: src={{ item.src }} dest={{ item.dest }}
   with_items:
-    - src: profile.sh
+    - src: homebrew_profile.sh
       dest: ~/.zprofile.d/homebrew.sh

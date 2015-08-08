@@ -26,7 +26,7 @@
     rbenv rehash
 
 - name: ruby config
-  template: src=ruby.sh dest=~/.zprofile.d/ruby.sh
+  copy: src=ruby_profile.sh dest=~/.zprofile.d/ruby.sh
 
 - name: install bundler
   register: bundler
