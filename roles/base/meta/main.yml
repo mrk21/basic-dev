@@ -1,9 +1,6 @@
 ---
 dependencies:
   # sub roles
-  - role: base/solarized
-    tags: solarized
-    
   - role: base/zsh
     tags: zsh
   
@@ -12,6 +9,9 @@ dependencies:
   
   - role: base/basic-pkg
     tags: basic-pkg
+  
+  - role: base/solarized
+    tags: solarized
   
   - role: base/tmux
     tags: tmux

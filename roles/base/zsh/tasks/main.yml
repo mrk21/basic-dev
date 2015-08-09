@@ -1,17 +1,13 @@
 ---
-- name: install
-  homebrew: name={{ item }} state=latest
-  with_items:
-    - zsh
-  
 - name: get user name
   command: whoami
   register: result
   changed_when: False
   
 - name: change default shell
-  sudo: yes
-  command: chsh -s /usr/local/bin/zsh {{ result.stdout }}
+  user: |
+    name={{ result.stdout }}
+    shell=/bin/zsh
   
 - name: make directory
   file: state=directory path={{ item }}
