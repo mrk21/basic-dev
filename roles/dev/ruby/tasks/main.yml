@@ -7,7 +7,6 @@
     - rbenv-gemset
     - rbenv-gem-rehash
     - readline
-    - openssl
 
 - name: install ruby
   register: ruby
