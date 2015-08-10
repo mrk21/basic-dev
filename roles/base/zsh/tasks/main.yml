@@ -5,9 +5,9 @@
   changed_when: False
   
 - name: change default shell
-  user: |
-    name={{ result.stdout }}
-    shell=/bin/zsh
+  sudo: yes
+  changed_when: False
+  command: chsh -s /bin/zsh {{ result.stdout }}
   
 - name: make directory
   file: state=directory path={{ item }}
