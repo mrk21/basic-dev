@@ -1,20 +1,19 @@
 ---
-- name: install
-  homebrew: name={{ item }} state=latest
-  with_items:
-    - nodebrew
+- name: install nodebrew
+  homebrew: name=nodebrew state=latest
 
 - name: copy config files
-  copy: src={{ item.src }} dest={{ item.dest }}
-  with_items:
-    - src: node_profile.sh
-      dest: ~/.zprofile.d/node.sh
+  copy: src=node_profile.sh dest=~/.zprofile.d/node.sh
 
 - name: install node
+  register: node
   shell: |
     creates=~/.nodebrew/node/{{ item }}
+    mkdir -p  ~/.nodebrew/src/{{ item }}/
     nodebrew install {{ item }}
-    nodebrew use {{ item }}
   with_items:
-    - v0.10.33
-    - v0.12.0
+    - v0.12.7
+
+- name: use node
+  when: node.changed
+  shell: nodebrew use v0.12.7
