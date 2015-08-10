@@ -1,8 +1,8 @@
 ---
 - name: install homebrew
-  shell: >
+  shell: |
     creates=/usr/local/bin/brew
-    ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 - name: update formula
   homebrew: update_homebrew=yes
