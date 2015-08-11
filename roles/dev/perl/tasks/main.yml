@@ -6,5 +6,5 @@
   sudo: yes
   cpanm: name={{ item }}
   with_items:
-    - carton
+    - Carton
     - App::Prove
