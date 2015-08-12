@@ -48,5 +48,8 @@ dependencies:
   - role: dev/php
     tags: php
   
+  - role: dev/java
+    tags: java
+  
   - role: dev/blockdiag
     tags: blockdiag
