@@ -36,6 +36,9 @@ dependencies:
   - role: dev/redis
     tags: redis
   
+  - role: dev/openresty
+    tags: openresty
+  
   - role: dev/lua
     tags: lua
   
