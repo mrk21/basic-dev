@@ -1,28 +1,20 @@
 ---
 - name: create ~/.vim/bundle
-  file: >
+  file: |
     state=directory
     recurse=yes
     path=~/.vim/bundle
 
 - name: git clone neobundle
-  git: >
+  git: |
     repo=https://github.com/Shougo/neobundle.vim.git
     dest=~/.vim/bundle/neobundle.vim
 
 - name: install neobundle-cmd
-  gem: name={{ item }} state=latest
-  with_items:
-    - neobundle
-
-- name: bundle clean
-  command: neobundle clean
-  register: result
-  changed_when: result.rc == 0
-  failed_when: result.rc == 1
+  gem: name=neobundle state=latest user_install=no
 
 - name: bundle install
-  command: neobundle install
+  shell: neobundle install
   register: result
   changed_when: result.rc == 0
   failed_when: result.rc == 1

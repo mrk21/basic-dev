@@ -135,11 +135,7 @@ NeoBundle 'evanmiller/nginx-vim-syntax'
 NeoBundle 'rhysd/wandbox-vim'
 
 " Vimperator Syntax
-NeoBundle 'https://vimperator-labs.googlecode.com/hg/', {
-      \ 'name': 'vimperator-syntax',
-      \ 'type': 'hg',
-      \ 'rtp':  'vimperator/contrib/vim/'
-      \}
+NeoBundle 'BohrShaw/vim-vimperator-syntax'
 
 " Haskell Syntax
 NeoBundleLazy 'dag/vim2hs', {
