@@ -4,13 +4,13 @@
     - karabiner
 
 - name: copy private.xml
-  copy: >
+  copy: |
     src=private.xml
-    dest=~/Library/Application\ Support/Karabiner/private.xml
+    dest='~/Library/Application Support/Karabiner/private.xml'
 
 - name: export current settings
   changed_when: False
-  shell: >
+  shell: |
     /Applications/Karabiner.app/Contents/Library/bin/karabiner export > /tmp/karabiner_settings.sh
 
 - name: copy settings
@@ -18,5 +18,5 @@
   copy: src=settings.sh dest=/tmp/karabiner_settings.sh mode=0755
 
 - name: import settings
-  when: result|changed
+  when: result.changed
   command: /tmp/karabiner_settings.sh
