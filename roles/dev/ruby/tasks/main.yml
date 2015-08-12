@@ -29,7 +29,7 @@
 
 - name: install bundler
   register: bundler
-  gem: name=bundler state=latest
+  gem: name=bundler state=latest user_install=no
 
 - name: rehash
   when: bundler.changed
