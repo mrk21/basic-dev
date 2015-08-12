@@ -7,32 +7,13 @@
   when: firebrew.changed
   shell: rbenv rehash
   
+- name: copy profiles
+  copy: src=Firefox dest='~/Library/Application Support'
+  
 - name: get profile dir
   changed_when: False
   register: profile_path
   shell: firebrew profile --attribute=path
-  
-- name: copy user.js
-  copy: src=user.js dest='{{ profile_path.stdout }}/user.js'
-  
-- name: initialize search engines
-  register: result
-  changed_when: result.rc == 0
-  failed_when: False
-  shell: |
-    ruby -e "
-      require 'json';
-      path = '{{ profile_path.stdout }}/search.json';
-      data = JSON.parse(File.read(path));
-      data['directories'].each{|(k,v)|
-        v['engines'].each{|vv|
-          is_hiding = !['Google','Translate','Oxford','GitHub'].include?(vv['_name']);
-          exit 1 if is_hiding && vv['_hidden'];
-          vv['_hidden'] = is_hiding;
-        };
-      };
-      File.write(path, JSON.generate(data));
-    "
   
 - name: create search plugin directory
   file: >
@@ -57,7 +38,6 @@
 - name: install add-ons
   firebrew: name='{{ item }}' state=present
   with_items:
-    - Japanese Language Pack
     - Vimperator
     - Evernote Web Clipper
     - Hatena Bookmark

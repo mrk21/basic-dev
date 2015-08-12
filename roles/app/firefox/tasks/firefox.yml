@@ -1,17 +1,19 @@
 ---
 - name: install
-  sudo: yes
-  homebrew_cask: name={{ item }} state=present
-  with_items:
-    - firefox
+  homebrew_cask: name=firefox-ja state=present
   
 - name: |
-    HACK: swapping Caskroom/firefox/latest/Firefox.app and /Applications/Firefox.app.
+    HACK: swapping Caskroom/firefox-ja/latest/Firefox.app and /Applications/Firefox.app.
     In order to use the 1Password addon, Firefox.app should exist on the /Application.
-  sudo: yes
   shell: >
-    creates=/opt/homebrew-cask/Caskroom/firefox/latest/.swapped
+    creates=/opt/homebrew-cask/Caskroom/firefox-ja/latest/.swapped
+    
     rm -f /Applications/Firefox.app;
-    mv /opt/homebrew-cask/Caskroom/firefox/latest/Firefox.app /Applications/Firefox.app;
-    ln -s /Applications/Firefox.app /opt/homebrew-cask/Caskroom/firefox/latest/Firefox.app;
-    touch /opt/homebrew-cask/Caskroom/firefox/latest/.swapped;
+    mv /opt/homebrew-cask/Caskroom/firefox-ja/latest/Firefox.app /Applications/Firefox.app;
+    chown -R {{ ansible_user_id }}:admin /Applications/Firefox.app;
+    
+    ln -s /Applications/Firefox.app /opt/homebrew-cask/Caskroom/firefox-ja/latest/Firefox.app;
+    chown -R {{ ansible_user_id }}:admin /opt/homebrew-cask/Caskroom/firefox-ja/latest/Firefox.app;
+    
+    touch /opt/homebrew-cask/Caskroom/firefox-ja/latest/.swapped;
+    chown -R {{ ansible_user_id }}:admin /opt/homebrew-cask/Caskroom/firefox-ja/latest/.swapped;
