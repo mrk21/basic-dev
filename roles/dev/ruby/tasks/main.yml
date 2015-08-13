@@ -27,10 +27,13 @@
 - name: ruby config
   copy: src=ruby_profile.sh dest=~/.zprofile.d/ruby.sh
 
-- name: install bundler
-  register: bundler
-  gem: name=bundler state=latest user_install=no
+- name: install basic gems
+  register: gems
+  gem: name={{ item }} state=latest user_install=no
+  with_items:
+    - bundler
+    - rails
 
 - name: rehash
-  when: bundler.changed
+  when: gems.changed
   shell: rbenv rehash
