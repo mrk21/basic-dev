@@ -51,5 +51,8 @@ dependencies:
   - role: dev/java
     tags: java
   
+  - role: dev/phantomjs
+    tags: phantomjs
+  
   - role: dev/blockdiag
     tags: blockdiag
