@@ -533,9 +533,13 @@
 	<key>NSTableView Sort Ordering KeyBingingTable</key>
 	<array/>
 	<key>NSWindow Frame Preferences</key>
-	<string>81 267 924 485 0 0 1280 777 </string>
+	<string>223 239 605 485 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 4 1280 773 0 0 1280 777 </string>
+	<string>0 6 1278 771 0 0 1280 777 </string>
+	<key>NSWindow Frame iTerm Window 1</key>
+	<string>0 26 1280 751 0 0 1280 777 </string>
+	<key>NSWindow Frame iTerm Window 2</key>
+	<string>173 27 570 451 0 0 1280 777 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1458,7 +1462,7 @@
 			<key>Blend</key>
 			<real>0.30000001192092896</real>
 			<key>Blink Allowed</key>
-			<false/>
+			<true/>
 			<key>Blinking Cursor</key>
 			<false/>
 			<key>Blur</key>
@@ -2030,7 +2034,7 @@
 	<key>NoSyncTimeOfLastPromo</key>
 	<real>461047589.02372199</real>
 	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>461047589.02390403</real>
+	<real>462468455.37778801</real>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -2093,7 +2097,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-08-11T12:07:03Z</date>
+	<date>2015-08-28T15:27:21Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -2130,6 +2134,10 @@
 	<integer>0</integer>
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
+	<key>findIgnoreCase_iTerm</key>
+	<true/>
+	<key>findRegex_iTerm</key>
+	<false/>
 	<key>iTerm Version</key>
 	<string>2.1.1</string>
 </dict>
