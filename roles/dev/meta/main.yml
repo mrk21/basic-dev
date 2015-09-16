@@ -56,3 +56,6 @@ dependencies:
   
   - role: dev/blockdiag
     tags: blockdiag
+  
+  - role: dev/elixir
+    tags: elixir

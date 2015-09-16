@@ -152,6 +152,9 @@ NeoBundleLazy 'eagletmt/neco-ghc', {
       \ 'autoload': {'filetypes': 'haskell'}
       \}
 
+" Elixir
+NeoBundle 'elixir-lang/vim-elixir'
+
 " Markdown Syntax
 NeoBundle 'plasticboy/vim-markdown'
 
