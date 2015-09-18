@@ -152,6 +152,9 @@ NeoBundleLazy 'eagletmt/neco-ghc', {
       \ 'autoload': {'filetypes': 'haskell'}
       \}
 
+" Slim
+NeoBundle 'slim-template/vim-slim'
+
 " Elixir
 NeoBundle 'elixir-lang/vim-elixir'
 
