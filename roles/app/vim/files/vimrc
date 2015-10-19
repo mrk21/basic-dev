@@ -243,6 +243,12 @@ nnoremap ,g :<C-u>Unite -buffer-name=search-buffer grep:::
 vnoremap <silent> ,g y:Unite -buffer-name=search-buffer grep:::<C-R>=escape(@", ':\\.*$^[]')<CR><CR>
 nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR>
 
+" other keymap
+nnoremap t :<C-u>Unite tab<CR>
+nnoremap b :<C-u>Unite buffer<CR>
+
+
+
 " custum action: multiple file open
 " see: http://d.hatena.ne.jp/thinca/20101031/1288531457
 let s:unite_action = {
