@@ -1,3 +1,6 @@
+ignorekeys clear
+ignorekeys add docs\\.google\\.com
+
 set verbose=9
 set focuscontent
 set gui=nonavigation
