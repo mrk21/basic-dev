@@ -6,6 +6,9 @@ dependencies:
   - role: dev/git
     tags: git
   
+  - role: dev/mercurial
+    tags: mercurial
+  
   - role: dev/cpp
     tags: cpp
   
@@ -59,3 +62,6 @@ dependencies:
   
   - role: dev/elixir
     tags: elixir
+  
+  - role: dev/lisp
+    tags: lisp
