@@ -1,0 +1,8 @@
+---
+- name: install
+  register: emacs
+  homebrew: name=emacs state=latest install_options=cocoa
+
+- name: link
+  when: emacs.changed
+  shell: brew linkapps

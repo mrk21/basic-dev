@@ -17,3 +17,6 @@ dependencies:
   
   - role: app/vim
     tags: vim
+  
+  - role: app/emacs
+    tags: emacs
