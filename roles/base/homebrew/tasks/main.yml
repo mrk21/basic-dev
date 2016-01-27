@@ -13,9 +13,6 @@
     - caskroom/cask
     - caskroom/versions
 
-- name: install homebrew-cask
-  homebrew: name=brew-cask state=latest
-  
 - name: copy homebrew-cask config
   copy: src={{ item.src }} dest={{ item.dest }}
   with_items:
