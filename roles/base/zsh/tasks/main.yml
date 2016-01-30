@@ -5,7 +5,7 @@
   changed_when: False
   
 - name: change default shell
-  sudo: yes
+  become: yes
   changed_when: False
   command: chsh -s /bin/zsh {{ result.stdout }}
   

@@ -1,4 +1,4 @@
 ---
 - name: install
-  sudo: yes
+  become: yes
   homebrew_cask: name=java state=present

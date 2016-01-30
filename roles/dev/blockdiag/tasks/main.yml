@@ -3,7 +3,7 @@
   homebrew: name=freetype state=latest
   
 - name: install
-  sudo: yes
+  become: yes
   easy_install: name={{ item }}
   with_items:
     - blockdiag

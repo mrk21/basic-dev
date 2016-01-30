@@ -1,6 +1,6 @@
 ---
 - name: install
-  sudo: yes
+  become: yes
   npm: name={{ item }} global=yes state=latest
   with_items:
     - typescript

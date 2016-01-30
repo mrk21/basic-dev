@@ -3,7 +3,7 @@
   homebrew: name=cpanminus state=latest
   
 - name: install basic modules
-  sudo: yes
+  become: yes
   cpanm: name={{ item }}
   with_items:
     - Carton
