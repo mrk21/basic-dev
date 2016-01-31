@@ -33,7 +33,7 @@
 - include: _search_engine.yml
   vars:
     name: github
-    icon_url: https://github.com/favicon.ico 
+    icon_url: https://github.com/favicon.ico
   
 - name: install add-ons
   firebrew: name='{{ item }}' state=present
