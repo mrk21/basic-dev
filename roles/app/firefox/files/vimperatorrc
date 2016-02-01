@@ -63,7 +63,6 @@ nnoremap ,e :javascript<Space>evernote_doAction();<CR>
 " Hint mode
 set hintchars=fjklasdhguionmerwc
 highlight Hint <<CSS
-  z-index: 2147483647; /* z-index upper limit value: 0x7FFFFFFF */
   padding: 0px 2px 0px 2px;
   font-family: Menlo, Consolas, Monaco, monospace;
   font-size: 14px;
@@ -71,6 +70,7 @@ highlight Hint <<CSS
   text-transform: uppercase;
   color: #ffffff;
   background-color: #ff0000;
+  border: 1px solid #000000;
 CSS
 
 " plugin loader
