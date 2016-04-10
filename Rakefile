@@ -10,7 +10,7 @@ end
 desc 'Install/Upgrade Ansible'
 task :ansible do
   sh "sudo easy_install pip"
-  sh "sudo pip install -U ansible"
+  sh "sudo pip install ansible"
 end
 
 desc 'Export Karabiner settings'
