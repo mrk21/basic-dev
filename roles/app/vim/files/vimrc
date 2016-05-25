@@ -111,6 +111,11 @@ NeoBundle "jceb/vim-hier"
 " YAML syntax/indent
 NeoBundle 'mrk21/yaml-vim'
 
+" ES2015 Syntax
+NeoBundleLazy 'othree/yajs.vim', {
+      \ 'autoload': {'filetypes': 'javascript'}
+      \}
+
 " CoffeeScript Syntax
 NeoBundle 'kchmck/vim-coffee-script'
 
