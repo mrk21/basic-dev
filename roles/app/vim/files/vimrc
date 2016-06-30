@@ -48,9 +48,9 @@ inoremap <Left> <NOP>
 inoremap <Right> <NOP>
 
 " Keep indent of blank line.
-nnoremap o oX<C-h>
-nnoremap O OX<C-h>
-inoremap <CR> <CR>X<C-h>
+" nnoremap o oX<C-h>
+" nnoremap O OX<C-h>
+" inoremap <CR> <CR>X<C-h>
 
 " Transition a command mode without entering a shift key.
 nnoremap ; :
