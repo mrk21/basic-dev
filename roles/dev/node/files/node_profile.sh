@@ -1,1 +1,2 @@
-export PATH=${HOME}/.nodebrew/current/bin:${PATH}
+export PATH="$HOME/.nodenv/bin:$PATH"
+eval "$(nodenv init -)"
