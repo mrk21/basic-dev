@@ -2,7 +2,6 @@ ignorekeys clear
 ignorekeys add docs\\.google\\.com
 
 set verbose=9
-set focuscontent
 set gui=nonavigation
 set defsearch=google
 
@@ -74,15 +73,13 @@ highlight Hint <<CSS
 CSS
 
 " plugin loader
-javascript <<JS
-  liberator.globalVariables.plugin_loader_roots = [
-    '~/.vimperator/vimperator-plugins/'
-  ];
-  liberator.globalVariables.plugin_loader_plugins = [
-    'appendAnchor',
-    'forcefocuscontent'
-  ];
-JS
+" javascript <<JS
+"   liberator.globalVariables.plugin_loader_roots = [
+"     '~/.vimperator/vimperator-plugins/'
+"   ];
+"   liberator.globalVariables.plugin_loader_plugins = [
+"   ];
+" JS
 
 " Hatena Bookmark plugin
 javascript <<JS
