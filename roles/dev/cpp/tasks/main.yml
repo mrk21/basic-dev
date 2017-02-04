@@ -4,22 +4,22 @@
   with_items:
     - gcc48
     - gcc49
+    - gcc5
   
 - name: install clang
   register: clang
   homebrew: state=latest name={{ item }} install_options=with-clang,with-libcxx,rtti
   with_items:
-    - llvm33
-    - llvm34
-    - llvm35
+    - llvm37
+    - llvm38
   
-- name: use install_name_tool to the libclang.dylib of llvm35 (for clang_complete)
+- name: use install_name_tool to the libclang.dylib of llvm38 (for clang_complete)
   when: clang.changed
   shell: |
-    _path=$(brew --prefix llvm35)
-    _target=${_path}/lib/llvm-3.5/lib/libclang.dylib
+    _path=$(brew --prefix llvm38)
+    _target=${_path}/lib/llvm-3.8/lib/libclang.dylib
     chmod u+w ${_target}
-    install_name_tool -change '@rpath/libLLVM-3.5.dylib' ${_path}/lib/llvm-3.5/lib/libLLVM-3.5.dylib ${_target}
+    install_name_tool -change '@rpath/libLLVM-3.8.dylib' ${_path}/lib/llvm-3.8/lib/libLLVM-3.8.dylib ${_target}
     chmod u-w ${_target}
   
 - name: install boost

@@ -13,15 +13,13 @@
     creates=~/.rbenv/versions/{{ item }}/bin/ruby
     rbenv install {{ item }}
   with_items:
-    - 2.0.0-p594
-    - 2.1.4
-    - 2.2.2
-    - 2.3.0
+    - 2.3.1
+    - 2.4.0
 
 - name: using latest version
   when: ruby.changed
   shell: |
-    rbenv global 2.2.2
+    rbenv global 2.4.0
     rbenv rehash
 
 - name: ruby config
