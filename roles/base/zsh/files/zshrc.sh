@@ -98,7 +98,9 @@ set_git_local_config(){
   done
   
   # apply local configs
-  source "$GIT_LOCAL_CONFIG"
+  if git rev-parse 2> /dev/null; then
+    source "$GIT_LOCAL_CONFIG" 2>/dev/null
+  fi
 }
 
 # include sub settings
